@@ -1,0 +1,394 @@
+<LinearLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/green"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="btnBack"
+        android:text="Back"
+        android:layout_gravity="right" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_gravity="center"
+        android:text="ตั้งค่า"
+        android:textStyle="bold"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark"
+        android:id="@+id/txtData"
+        android:textSize="23dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="รับประทาน :"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ก่อนอาหารทันที"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:onClick="ClickItem"
+            android:id="@+id/type1" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="หลังอาหารทันที"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:onClick="ClickItem"
+            android:id="@+id/type2" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ก่อนอาหาร 30 นาที"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:onClick="ClickItem"
+            android:id="@+id/type33" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="หลังอาหาร 30 นาที"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:onClick="ClickItem"
+            android:id="@+id/type44" />
+
+
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ช่วงเวลา :"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ตามเวลา"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:onClick="ClickItem1"
+            android:id="@+id/type5" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="40dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:text="    ตอนเช้า    " />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:text="       เวลา : "/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:id="@+id/timeEdit1"
+                android:textColor="@android:color/black"
+                android:text="7.30"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:text="      "/>
+
+            <Button
+                android:onClick="time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:text="เปลี่ยนแปลงเวลา" />
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/time2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:text="    ตอนกลางวัน    " />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:text="เวลา : "/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:id="@+id/timeEdit2"
+                    android:textColor="@android:color/black"
+                    android:text="12.30"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:text="     "/>
+
+                <Button
+                    android:id="@+id/btnEdit2"
+                    android:onClick="time2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:text="เปลี่ยนแปลงเวลา" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/time3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:text="    ตอนเย็น    " />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:text="       เวลา : "/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:id="@+id/timeEdit3"
+                    android:textColor="@android:color/black"
+                    android:text="18.30"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:text="     "/>
+
+                <Button
+                    android:id="@+id/btnEdit3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:onClick="time3"
+                    android:textColor="@android:color/black"
+                    android:text="เปลี่ยนแปลงเวลา" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/time4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:text="    ก่อนนอน    " />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:text="      เวลา : "/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:id="@+id/timeEdit4"
+                    android:textColor="@android:color/black"
+                    android:text="22.30"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:text="     "/>
+
+                <Button
+                    android:id="@+id/btnEdit4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:onClick="time4"
+                    android:textColor="@android:color/black"
+                    android:text="เปลี่ยนแปลงเวลา" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="เป็นชั่วโมง"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:onClick="ClickItem1"
+            android:id="@+id/type6" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="40dp">
+
+            <RadioGroup
+                android:id="@+id/radioGroup2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/editHour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:onClick="time99"
+                        android:textColor="@android:color/black"
+                        android:text="เลือกชั่วโมง" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ทุกๆ 1 ชั่วโมง"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/black"
+                        android:id="@+id/timeEditTime" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/black"
+                        android:text="       เริ่ม : "/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:id="@+id/timeEdit5"
+                        android:textColor="@android:color/black"
+                        android:text="10.30"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/black"
+                        android:text="  "/>
+
+                    <Button
+                        android:id="@+id/btnEdit1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:onClick="time5"
+                        android:textColor="@android:color/black"
+                        android:text="ตั้งค่าเวลา" />
+
+                </LinearLayout>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="   "
+        android:textStyle="bold"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:onClick="save"
+        android:textColor="@android:color/black"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="บันทึกรายการ" />
+
+
+
+</LinearLayout>

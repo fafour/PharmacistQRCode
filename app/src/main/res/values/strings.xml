@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">PharmacistQRCode</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_scan_qrcode">ScanQRCodeActivity</string>
+    <string name="title_activity_information">InformationActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_history">HistoryActivity</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_time">TimeActivity</string>
+    <string name="title_activity_setting_system">SettingSystemActivity</string>
+    <string name="title_activity_add">AddActivity</string>
+    <string name="title_activity_qrcode_menu">QRCodeMenuActivity</string>
+    <string name="title_activity_add_data_menu">AddDataMenuActivity</string>
+    <string name="title_activity_validador">validador</string>
+    <string name="title_activity_direction">DirectionActivity</string>
+    <string name="title_activity_decoder">DecoderActivity</string>
+    <string name="title_activity_data">DataActivity</string>
+    <string name="title_activity_morning">MorningActivity</string>
+    <string name="title_activity_afternoon">AfternoonActivity</string>
+    <string name="title_activity_dinner">DinnerActivity</string>
+    <string name="title_activity_bed">BedActivity</string>
+    <string name="title_activity_edit_time1">EditTime1Activity</string>
+    <string name="title_activity_edit_time2">EditTime2Activity</string>
+    <string name="title_activity_edit_time3">EditTime3Activity</string>
+    <string name="title_activity_edit_time4">EditTime4Activity</string>
+    <string name="title_activity_edit_time5">EditTime5Activity</string>
+    <string name="title_activity_warning">WarningActivity</string>
+</resources>
