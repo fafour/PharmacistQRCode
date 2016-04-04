@@ -5,14 +5,21 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-public class EditTime3Activity extends Activity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class EditTime3Activity extends Activity implements AdapterView.OnItemSelectedListener{
     TextView atTime1,atTime2,atTime3;
     private int pHour1;
     private int pMinute1;
@@ -20,6 +27,7 @@ public class EditTime3Activity extends Activity {
     private int pMinute2;
     private int pHour3;
     private int pMinute3;
+    MediaPlayer mediaPlayer;
 
     TextView timeEditQRcode1,timeEditQRcode2,timeEditQRcode3;
 
@@ -129,6 +137,97 @@ public class EditTime3Activity extends Activity {
 
             }
         }
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(this);
+        List categories = new ArrayList();
+        categories.add("ไม่มีเสียง");
+        categories.add("เสียง1");
+        categories.add("เสียง2");
+        categories.add("เสียง3");
+        categories.add("เสียง4");
+        categories.add("เสียง5");
+        categories.add("เสียง6");
+        categories.add("เสียง7");
+
+        ArrayAdapter dataAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id)
+            {
+                if (position==0){
+                    if(mediaPlayer!=null) {
+                        mediaPlayer.stop();
+                    }
+
+                }
+                else if (position==1){
+                    if(mediaPlayer!=null) {
+                        mediaPlayer.stop();
+                    }
+                    mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.aaa);
+                    mediaPlayer.start();
+
+                }
+                else if (position==2){
+                    if(mediaPlayer!=null) {
+                        mediaPlayer.stop();
+                    }
+                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.ddd);
+                    mediaPlayer.start();
+
+                }
+                else if (position==3){
+                    if(mediaPlayer!=null) {
+                        mediaPlayer.stop();
+                    }
+                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.fff);
+                    mediaPlayer.start();
+
+                }
+                else if (position==4){
+                    if(mediaPlayer!=null) {
+                        mediaPlayer.stop();
+                    }
+                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.ggg);
+                    mediaPlayer.start();
+
+                }
+                else if (position==5){
+                    if(mediaPlayer!=null) {
+                        mediaPlayer.stop();
+                    }
+                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.sss);
+                    mediaPlayer.start();
+
+                }
+                else if (position==6){
+                    if(mediaPlayer!=null) {
+                        mediaPlayer.stop();
+                    }
+                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.vvv);
+                    mediaPlayer.start();
+
+                }
+                else if (position==7){
+                    if(mediaPlayer!=null) {
+                        mediaPlayer.stop();
+                    }
+                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.xxx);
+                    mediaPlayer.start();
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+
+
+        });
 
 
 
@@ -273,4 +372,13 @@ public class EditTime3Activity extends Activity {
 
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
