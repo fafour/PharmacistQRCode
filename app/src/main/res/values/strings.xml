@@ -28,4 +28,6 @@
     <string name="title_activity_edit_time4">EditTime4Activity</string>
     <string name="title_activity_edit_time5">EditTime5Activity</string>
     <string name="title_activity_warning">WarningActivity</string>
+    <string name="title_activity_add_data_menu_hour">AddDataMenuHourActivity</string>
+    <string name="title_activity_qrcode_menu_hour">QRCodeMenuHourActivity</string>
 </resources>

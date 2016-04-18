@@ -1,36 +1,38 @@
 package com.example.user.pharmacistqrcode;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Calendar;
+import java.util.TimeZone;
 
-public class EditTime2Activity extends Activity implements AdapterView.OnItemSelectedListener {
+public class EditTime2Activity extends Activity  {
     TextView atTime1,atTime2;
     private int pHour1;
     private int pMinute1;
     private int pHour2;
     private int pMinute2;
-    MediaPlayer mediaPlayer;
 
     TextView timeEditQRcode1,timeEditQRcode2;
 
     static final int TIME_DIALOG_ID = 0;
     static final int TIME_DIALOG_ID1 = 1;
+
+    ArrayList<PendingIntent> intentarray = new ArrayList<PendingIntent>();
+    ArrayList<Calendar>calTimes = new ArrayList<Calendar>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,192 +78,141 @@ public class EditTime2Activity extends Activity implements AdapterView.OnItemSel
         if (a[1].equals("เช้า-เที่ยง")){
             if (SettingSystemActivity.TIME_1 == null ){
                 timeEditQRcode1.setText("08.30");
+                pHour1 = 8;
+                pMinute1 =30;
 
             }else {
                 timeEditQRcode1.setText(SettingSystemActivity.TIME_1);
-
+                pHour1 = SettingSystemActivity.TIME_11;
+                pMinute1 = SettingSystemActivity.TIME_12;
             }
             if (SettingSystemActivity.TIME_2 == null ){
                 timeEditQRcode2.setText("13.30");
+                pHour2 = 13;
+                pMinute2 =30;
 
             }else {
                 timeEditQRcode2.setText(SettingSystemActivity.TIME_2);
-
+                pHour2 = SettingSystemActivity.TIME_21;
+                pMinute2 = SettingSystemActivity.TIME_22;
 
             }
         }
         else if ( a[1].equals("เช้า-เย็น")){
             if (SettingSystemActivity.TIME_1 == null ){
                 timeEditQRcode1.setText("08.30");
+                pHour1 = 8;
+                pMinute1 =30;
 
             }else {
                 timeEditQRcode1.setText(SettingSystemActivity.TIME_1);
+                pHour1 = SettingSystemActivity.TIME_11;
+                pMinute1 = SettingSystemActivity.TIME_12;
 
             }
             if (SettingSystemActivity.TIME_3 == null ){
                 timeEditQRcode2.setText("18.30");
+                pHour2 = 18;
+                pMinute2 =30;
 
             }else {
                 timeEditQRcode2.setText(SettingSystemActivity.TIME_3);
-
+                pHour2 = SettingSystemActivity.TIME_31;
+                pMinute2 = SettingSystemActivity.TIME_32;
             }
 
         }
         else if (a[1].equals("เช้า-ก่อนนอน")){
             if (SettingSystemActivity.TIME_1 == null ){
                 timeEditQRcode1.setText("08.30");
+                pHour1 = 8;
+                pMinute1 =30;
 
             }else {
                 timeEditQRcode1.setText(SettingSystemActivity.TIME_1);
-
+                pHour1 = SettingSystemActivity.TIME_11;
+                pMinute1 = SettingSystemActivity.TIME_12;
             }
             if (SettingSystemActivity.TIME_4 == null ){
                 timeEditQRcode2.setText("22.30");
+                pHour2 = 22;
+                pMinute2 =30;
 
             }else {
                 timeEditQRcode2.setText(SettingSystemActivity.TIME_4);
-
+                pHour2 = SettingSystemActivity.TIME_41;
+                pMinute2 = SettingSystemActivity.TIME_42;
             }
         }
         else if (a[1].equals("เที่ยง-เย็น")){
             if (SettingSystemActivity.TIME_2 == null ){
                 timeEditQRcode1.setText("13.30");
+                pHour1 = 13;
+                pMinute1 =30;
 
             }else {
                 timeEditQRcode1.setText(SettingSystemActivity.TIME_2);
+                pHour1 = SettingSystemActivity.TIME_21;
+                pMinute1 = SettingSystemActivity.TIME_22;
 
             }
             if (SettingSystemActivity.TIME_3 == null ){
                 timeEditQRcode2.setText("18.30");
+                pHour2 = 18;
+                pMinute2 =30;
 
             }else {
                 timeEditQRcode2.setText(SettingSystemActivity.TIME_3);
+                pHour2 = SettingSystemActivity.TIME_31;
+                pMinute2 = SettingSystemActivity.TIME_32;
 
             }
         }
         else if (a[1].equals("เที่ยง-ก่อนนอน")){
             if (SettingSystemActivity.TIME_2 == null ){
                 timeEditQRcode1.setText("13.30");
+                pHour1 = 13;
+                pMinute1 =30;
 
             }else {
                 timeEditQRcode1.setText(SettingSystemActivity.TIME_2);
+                pHour1 = SettingSystemActivity.TIME_21;
+                pMinute1 = SettingSystemActivity.TIME_22;
 
             }
             if (SettingSystemActivity.TIME_4 == null ){
                 timeEditQRcode2.setText("22.30");
+                pHour2 = 22;
+                pMinute2 =30;
 
             }else {
                 timeEditQRcode2.setText(SettingSystemActivity.TIME_4);
-
+                pHour2 = SettingSystemActivity.TIME_41;
+                pMinute2 = SettingSystemActivity.TIME_42;
             }
         }
         else if (a[1].equals("เย็น-ก่อนนอน")){
             if (SettingSystemActivity.TIME_3 == null ){
                 timeEditQRcode1.setText("18.30");
-
+                pHour1 = 18;
+                pMinute1 =30;
             }else {
                 timeEditQRcode1.setText(SettingSystemActivity.TIME_3);
+                pHour1 = SettingSystemActivity.TIME_31;
+                pMinute1 = SettingSystemActivity.TIME_32;
 
             }
             if (SettingSystemActivity.TIME_4 == null ){
                 timeEditQRcode2.setText("22.30");
+                pHour2 = 22;
+                pMinute2 =30;
 
             }else {
                 timeEditQRcode2.setText(SettingSystemActivity.TIME_4);
-
+                pHour2 = SettingSystemActivity.TIME_41;
+                pMinute2 = SettingSystemActivity.TIME_42;
             }
         }
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        spinner.setOnItemSelectedListener(this);
-        List categories = new ArrayList();
-        categories.add("ไม่มีเสียง");
-        categories.add("เสียง1");
-        categories.add("เสียง2");
-        categories.add("เสียง3");
-        categories.add("เสียง4");
-        categories.add("เสียง5");
-        categories.add("เสียง6");
-        categories.add("เสียง7");
-
-        ArrayAdapter dataAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(dataAdapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id)
-            {
-                if (position==0){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-
-                }
-                else if (position==1){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.aaa);
-                    mediaPlayer.start();
-
-                }
-                else if (position==2){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.ddd);
-                    mediaPlayer.start();
-
-                }
-                else if (position==3){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.fff);
-                    mediaPlayer.start();
-
-                }
-                else if (position==4){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.ggg);
-                    mediaPlayer.start();
-
-                }
-                else if (position==5){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.sss);
-                    mediaPlayer.start();
-
-                }
-                else if (position==6){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.vvv);
-                    mediaPlayer.start();
-
-                }
-                else if (position==7){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.xxx);
-                    mediaPlayer.start();
-
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-
-
-        });
 
     }
     private TimePickerDialog.OnTimeSetListener mTimeSetListener =
@@ -359,20 +310,47 @@ public class EditTime2Activity extends Activity implements AdapterView.OnItemSel
         cv.put("timeDate", allTime);
         Uri nari = getContentResolver().insert(u, cv);
 
+        setAlarm1(pHour1,pMinute1);
+        setAlarm1(pHour2,pMinute2);
+
         Intent intent = new Intent(getApplicationContext(),QRCodeMenuActivity.class);
         startActivity(intent);
         finish();
 
     }
+    public void setAlarm1(int hour,int min){
+        Calendar cal = Calendar.getInstance();
+        Calendar cal_now = Calendar.getInstance();
 
+        cal.setTimeZone(TimeZone.getTimeZone("GMT+7"));
+        cal.setTimeInMillis(System.currentTimeMillis());
+        cal.set(Calendar.HOUR_OF_DAY, hour);
+        cal.set(Calendar.MINUTE,min);
+        cal.set(Calendar.SECOND, 00);
+        cal.set(Calendar.MILLISECOND, 00);
+        if(cal.before(cal_now)){//if its in the past increment
+            cal.add(Calendar.DATE,1);
+        }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        calTimes.add(cal);
 
+        alarm();
+    }
+    public void alarm(){
+        AlarmManager[] alarmManager=new AlarmManager[calTimes.size()];
+        for (int i = 0; i < calTimes.size();i++) {
+
+            Intent intent = new Intent(this,
+                    AlarmReceiver.class);
+            PendingIntent pi = PendingIntent.getBroadcast(this, i, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            alarmManager[i] = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            alarmManager[i].set(AlarmManager.RTC_WAKEUP,calTimes.get(i).getTimeInMillis()
+                    ,pi);
+
+            intentarray.add(pi);
+        }
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
 
-    }
 }

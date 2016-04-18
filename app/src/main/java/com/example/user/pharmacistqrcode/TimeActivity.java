@@ -10,25 +10,21 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
+import java.util.TimeZone;
 
-public class TimeActivity extends Activity implements AdapterView.OnItemSelectedListener{
-    TextView txt,timeEdit1,timeEdit2,timeEdit3,timeEdit4,timeEdit5;
+public class TimeActivity extends Activity  {
+    TextView txt,timeEdit1,timeEdit2,timeEdit3,timeEdit4;
     private int pHour1;
     private int pMinute1;
     private int pHour2;
@@ -37,23 +33,20 @@ public class TimeActivity extends Activity implements AdapterView.OnItemSelected
     private int pMinute3;
     private int pHour4;
     private int pMinute4;
-    private int pHour5;
-    private int pMinute5;
     static final int TIME_DIALOG_ID = 0;
     static final int TIME_DIALOG_ID1 = 1;
     static final int TIME_DIALOG_ID2 = 2;
     static final int TIME_DIALOG_ID3 = 3;
-    static final int TIME_DIALOG_ID4 = 4;
-    MediaPlayer mediaPlayer;
 
     String timeAll = "";
-    String atTime = null;
-    Calendar cal1 = Calendar.getInstance();
-    Calendar cal2 = Calendar.getInstance();
-    Calendar cal3 = Calendar.getInstance();
-    Calendar cal4 = Calendar.getInstance();
-    Calendar cal5 = Calendar.getInstance();
+    String atTime = "ก่อนอาหารทันที";
 
+    String data = "ทุกๆ 1 ชั่วโมง";
+    String menu = null;
+    String sing = "ไม่มีเสียง";
+
+    ArrayList<PendingIntent>intentarray = new ArrayList<PendingIntent>();
+    ArrayList<Calendar>calTimes = new ArrayList<Calendar>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +65,6 @@ public class TimeActivity extends Activity implements AdapterView.OnItemSelected
         timeEdit2 = (TextView) findViewById(R.id.timeEdit2);
         timeEdit3 = (TextView) findViewById(R.id.timeEdit3);
         timeEdit4 = (TextView) findViewById(R.id.timeEdit4);
-        timeEdit5 = (TextView) findViewById(R.id.timeEdit5);
 
         if (SettingSystemActivity.TIME_1 == null ){
             timeEdit1.setText("08.30");
@@ -118,107 +110,6 @@ public class TimeActivity extends Activity implements AdapterView.OnItemSelected
             pMinute4 = SettingSystemActivity.TIME_42;
 
         }
-        if (SettingSystemActivity.TIME_5 == null ){
-            timeEdit5.setText("09.30");
-            pHour5 = 9;
-            pMinute5 =30;
-        }else {
-            timeEdit5.setText(SettingSystemActivity.TIME_5);
-            pHour5 = SettingSystemActivity.TIME_51;
-            pMinute5 = SettingSystemActivity.TIME_52;
-        }
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        spinner.setOnItemSelectedListener(this);
-        List categories = new ArrayList();
-        categories.add("ไม่มีเสียง");
-        categories.add("เสียง1");
-        categories.add("เสียง2");
-        categories.add("เสียง3");
-        categories.add("เสียง4");
-        categories.add("เสียง5");
-        categories.add("เสียง6");
-        categories.add("เสียง7");
-
-        ArrayAdapter dataAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(dataAdapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id)
-            {
-             if (position==0){
-                 if(mediaPlayer!=null) {
-                     mediaPlayer.stop();
-                 }
-
-             }
-             else if (position==1){
-                 if(mediaPlayer!=null) {
-                     mediaPlayer.stop();
-                 }
-                 mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.aaa);
-                 mediaPlayer.start();
-
-             }
-             else if (position==2){
-                 if(mediaPlayer!=null) {
-                     mediaPlayer.stop();
-                 }
-                 mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.ddd);
-                 mediaPlayer.start();
-
-             }
-             else if (position==3){
-                 if(mediaPlayer!=null) {
-                     mediaPlayer.stop();
-                 }
-                 mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.fff);
-                 mediaPlayer.start();
-
-             }
-             else if (position==4){
-                 if(mediaPlayer!=null) {
-                     mediaPlayer.stop();
-                 }
-                 mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.ggg);
-                 mediaPlayer.start();
-
-             }
-             else if (position==5){
-                 if(mediaPlayer!=null) {
-                     mediaPlayer.stop();
-                 }
-                 mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.sss);
-                 mediaPlayer.start();
-
-             }
-             else if (position==6){
-                 if(mediaPlayer!=null) {
-                     mediaPlayer.stop();
-                 }
-                 mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.vvv);
-                 mediaPlayer.start();
-
-             }
-             else if (position==7){
-                 if(mediaPlayer!=null) {
-                     mediaPlayer.stop();
-                 }
-                 mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.xxx);
-                 mediaPlayer.start();
-
-             }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-
-
-        });
-
     }
     //--------------------------------------------------------------------------------------------------------------------------------
     public void ClickItem(View view) {
@@ -266,8 +157,6 @@ public class TimeActivity extends Activity implements AdapterView.OnItemSelected
                     pHour1 = hourOfDay;
                     pMinute1 = minute;
 
-                    cal1.set(Calendar.HOUR_OF_DAY, pHour1);
-                    cal1.set(Calendar.MINUTE, pMinute1);
 
                     updateDisplay();
                     displayToast();
@@ -294,9 +183,7 @@ public class TimeActivity extends Activity implements AdapterView.OnItemSelected
             case TIME_DIALOG_ID3:
                 return new TimePickerDialog(this,
                         mTimeSetListener3, pHour4, pMinute4, false);
-            case TIME_DIALOG_ID4:
-                return new TimePickerDialog(this,
-                        mTimeSetListener4, pHour5, pMinute5, false);
+
 
         }
         return null;
@@ -323,9 +210,6 @@ public class TimeActivity extends Activity implements AdapterView.OnItemSelected
                 public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                     pHour2 = hourOfDay;
                     pMinute2 = minute;
-
-                    cal2.set(Calendar.HOUR_OF_DAY, pHour2);
-                    cal2.set(Calendar.MINUTE, pHour2);
 
                     updateDisplay1();
                     displayToast1();
@@ -361,9 +245,6 @@ public class TimeActivity extends Activity implements AdapterView.OnItemSelected
                     pHour3 = hourOfDay;
                     pMinute3 = minute;
 
-                    cal3.set(Calendar.HOUR_OF_DAY, pHour3);
-                    cal3.set(Calendar.MINUTE, pMinute3);
-
                     updateDisplay2();
                     displayToast2();
                 }
@@ -396,9 +277,6 @@ public class TimeActivity extends Activity implements AdapterView.OnItemSelected
                     pHour4 = hourOfDay;
                     pMinute4 = minute;
 
-                    cal4.set(Calendar.HOUR_OF_DAY, pHour4);
-                    cal4.set(Calendar.MINUTE, pMinute4);
-
                     updateDisplay3();
                     displayToast3();
                 }
@@ -426,41 +304,6 @@ public class TimeActivity extends Activity implements AdapterView.OnItemSelected
     }
     //----------------------------------------------------------------------------------------------------------------------------
 
-    private TimePickerDialog.OnTimeSetListener mTimeSetListener4 =
-            new TimePickerDialog.OnTimeSetListener() {
-                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                    pHour5 = hourOfDay;
-                    pMinute5 = minute;
-
-                    cal5.set(Calendar.HOUR_OF_DAY, pHour5);
-                    cal5.set(Calendar.MINUTE, pMinute5);
-
-                    updateDisplay4();
-                    displayToast4();
-                }
-            };
-
-    private void updateDisplay4() {
-        timeEdit5.setText(
-                new StringBuilder()
-                        .append(pad4(pHour5)).append(":")
-                        .append(pad4(pMinute5)));
-    }
-    private void displayToast4() {
-        Toast.makeText(this, new StringBuilder().append("Update Time ").append(timeEdit5.getText()), Toast.LENGTH_SHORT).show();
-
-
-    }
-    private static String pad4(int c) {
-        if (c >= 10)
-            return String.valueOf(c);
-        else
-            return "0" + String.valueOf(c);
-    }
-    public void time5(View view) {
-        timeEdit5 = (TextView) findViewById(R.id.timeEdit5);
-        showDialog(TIME_DIALOG_ID4);
-    }
 
     //-------------------------------------------------------------------------------------------------------------------------
     public void time99(View view) {
@@ -474,6 +317,7 @@ public class TimeActivity extends Activity implements AdapterView.OnItemSelected
             public void onClick(DialogInterface dialog, int item) {
                 Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
                 txt.setText(items[item]);
+                data = (String) items[item];
             }
         });
         AlertDialog alert = builder.create();
@@ -497,78 +341,118 @@ public class TimeActivity extends Activity implements AdapterView.OnItemSelected
         TextView timeEdit3 = (TextView) findViewById(R.id.timeEdit3);
         TextView timeEdit4 = (TextView) findViewById(R.id.timeEdit4);
         TextView timeEditTime = (TextView) findViewById(R.id.timeEditTime);
-        TextView timeEdit5 = (TextView) findViewById(R.id.timeEdit5);
-
-
-        if (type5.isChecked()){
-            if(time1.isChecked()){
-                timeAll = timeAll+"  "+timeEdit1.getText();
-                setAlarm(cal1);
-            }
-            if(time2.isChecked()){
-                timeAll = timeAll+"  "+timeEdit2.getText();
-                setAlarm(cal2);
-            }
-            if(time3.isChecked()){
-                timeAll = timeAll+"  "+timeEdit3.getText();
-                setAlarm(cal3);
-            }
-            if(time4.isChecked()){
-                timeAll = timeAll+"  "+timeEdit4.getText();
-                setAlarm(cal4);
-            }
-        }
-        else if(type6.isChecked()){
-            timeAll = timeAll+"  "+timeEditTime.getText()+"  เริ่ม  "+timeEdit5.getText();
-            setAlarm(cal5);
-        }
 
         String name = getIntent().getStringExtra("name");
         String type = getIntent().getStringExtra("type");
         String item = getIntent().getStringExtra("item");
         String all = getIntent().getStringExtra("all");
-        int icon = getIntent().getIntExtra("icon", 0);
         String menuItem = "ชื่อ :" + name + " ประเภท :" + type + " ชนิด : " + item + " "+all;
-        String allTime = " รับประทาน : "+atTime +"  "+timeAll.toString();
 
-        Uri u =Uri.parse("content://productDB");
-        ContentValues cv = new ContentValues();
-        cv.put("icon",icon);
-        cv.put("productname", menuItem.toString());
-        cv.put("timeDate", allTime);
-        Uri nari = getContentResolver().insert(u, cv);
 
-        Intent intent = new Intent(getApplicationContext(),AddDataMenuActivity.class);
-        startActivity(intent);
-        finish();
 
+
+        if (type5.isChecked()){
+            if(time1.isChecked()){
+                timeAll = timeAll+"  "+timeEdit1.getText();
+                setAlarm1(pHour1,pMinute1);
+            }
+            if(time2.isChecked()){
+                timeAll = timeAll+"  "+timeEdit2.getText();
+                setAlarm1(pHour2,pMinute2);
+            }
+            if(time3.isChecked()){
+                timeAll = timeAll+"  "+timeEdit3.getText();
+                setAlarm1(pHour3,pMinute3);
+
+            }
+            if(time4.isChecked()){
+                timeAll = timeAll+"  "+timeEdit4.getText();
+                setAlarm1(pHour4,pMinute4);
+            }
+            int icon = getIntent().getIntExtra("icon", 0);
+            String allTime = " รับประทาน : "+atTime +"  "+timeAll.toString();
+            Uri u =Uri.parse("content://productDB");
+            ContentValues cv = new ContentValues();
+            cv.put("icon",icon);
+            cv.put("productname", menuItem.toString());
+            cv.put("timeDate", allTime);
+            Uri nari = getContentResolver().insert(u, cv);
+
+            Intent intent = new Intent(getApplicationContext(),AddDataMenuActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        else if(type6.isChecked()){
+            int icon = getIntent().getIntExtra("icon", 0);
+            timeAll = timeAll+"  "+timeEditTime.getText();
+            String allTime = " รับประทาน : "+atTime +"  "+timeAll.toString();
+            Uri u =Uri.parse("content://hour");
+            ContentValues cv = new ContentValues();
+            cv.put("icon",icon);
+            cv.put("productname", menuItem.toString());
+            cv.put("timeDate", allTime);
+            Uri nari = getContentResolver().insert(u, cv);
+
+            Intent intent = new Intent(getApplicationContext(),AddDataMenuHourActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
+
+    public void setAlarm1(int hour,int min){
+        Calendar cal = Calendar.getInstance();
+        Calendar cal_now = Calendar.getInstance();
+
+        cal.setTimeZone(TimeZone.getTimeZone("GMT+7"));
+        cal.setTimeInMillis(System.currentTimeMillis());
+        cal.set(Calendar.HOUR_OF_DAY, hour);
+        cal.set(Calendar.MINUTE,min);
+        cal.set(Calendar.SECOND, 00);
+        cal.set(Calendar.MILLISECOND, 00);
+        if(cal.before(cal_now)){//if its in the past increment
+            cal.add(Calendar.DATE,1);
+        }
+
+        calTimes.add(cal);
+
+        alarm();
+    }
+    public void alarm(){
+        AlarmManager[] alarmManager=new AlarmManager[calTimes.size()];
+        for (int i = 0; i < calTimes.size();i++) {
+
+            Intent intent = new Intent(TimeActivity.this,
+                    AlarmReceiver.class);
+            PendingIntent pi = PendingIntent.getBroadcast(
+                    TimeActivity.this, i, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            alarmManager[i] = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            alarmManager[i].set(AlarmManager.RTC_WAKEUP,calTimes.get(i).getTimeInMillis()
+                    ,pi);
+
+            intentarray.add(pi);
+        }
+    }
+
+    public void setAlarm(String txt){
+        AlarmManager alarmManager;
+            Intent intent = new Intent(TimeActivity.this,
+                    AlarmReceiver.class);
+            PendingIntent pi = PendingIntent.getBroadcast(
+                    TimeActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                    System.currentTimeMillis() + 1000 * 60, 1000 * 60 * 2, pi);
+    }
+
+
     public void btnBack(View v){
-        Intent intent = new Intent(getApplicationContext(),AddActivity.class);;
+        Intent intent = new Intent(getApplicationContext(),AddActivity.class);
         startActivity(intent);
         finish();
 
     }
 
-    private void setAlarm(Calendar targetCal){
 
-        final int _id = (int) System.currentTimeMillis();
-
-        Intent intent = new Intent(getBaseContext(), AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), _id, intent, 0);
-        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);
-
-    }
-
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
 }

@@ -19,12 +19,11 @@
         android:gravity="center"
         android:textColor="@android:color/black"
         android:textStyle="bold"
-        android:id="@+id/android1"
         android:textSize="30dp" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="(แบบตามเวลา)"
+        android:text="(แบบรายชั่วโมง)"
         android:gravity="center"
         android:textColor="@android:color/black"
         android:textSize="20dp" />
@@ -125,14 +124,11 @@
 
     </LinearLayout>
 
-
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/listView">
+        android:id="@+id/listView1">
 
     </ListView>
 
 </LinearLayout>
-

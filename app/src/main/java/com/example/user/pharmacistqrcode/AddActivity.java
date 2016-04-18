@@ -18,10 +18,10 @@ import java.util.List;
 public class AddActivity extends Activity implements AdapterView.OnItemSelectedListener {
     EditText name;
     EditText howmuch;
-    String type = null;
+    String type = "ยา";
     String item = null;
     String total = null;
-    int icon = 0;
+    int icon = R.drawable.pillicon;
 
 
 
@@ -155,8 +155,6 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
 
     }
     public void btnBack(View v){
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);;
-        startActivity(intent);
         finish();
 
     }

@@ -14,16 +14,16 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class QRCodeMenuActivity extends Activity implements View.OnClickListener,AdapterView.OnItemClickListener {
+public class QRCodeMenuHourActivity extends Activity implements View.OnClickListener,AdapterView.OnItemClickListener {
     ArrayList<qrcode> itemQRCodeArrayLists = new ArrayList<>();
     ListView listView;
     QRCodeAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qrcode_menu);
+        setContentView(R.layout.activity_qrcode_menu_hour);
 
-        Uri u =Uri.parse("content://qrcode");
+        Uri u =Uri.parse("content://qrcodeHour");
         Cursor c =getContentResolver().query(u, null, null, null, null);
         while (c.moveToNext()){
             itemQRCodeArrayLists.add(new qrcode(c.getInt(1), c.getString(2), c.getString(3)));
@@ -37,19 +37,19 @@ public class QRCodeMenuActivity extends Activity implements View.OnClickListener
     }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-        AlertDialog.Builder adb=new AlertDialog.Builder(QRCodeMenuActivity.this);
+        AlertDialog.Builder adb=new AlertDialog.Builder(QRCodeMenuHourActivity.this);
         adb.setTitle("Select");
         final CharSequence[] items = { "Delete"};
         final int positionToRemove = position;
         adb.setItems(items, new AlertDialog.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 itemQRCodeArrayLists.remove(positionToRemove);
-                Uri u = Uri.parse("content://qrcode");
+                Uri u = Uri.parse("content://qrcodeHour");
 
                 Cursor c = getContentResolver().query(u, null, null, null, null);
                 String ex = "_id =?";
                 c.moveToPosition(position);
-                String name = c.getString(c.getColumnIndex(ProductDB.COL_ID));
+                String name = c.getString(c.getColumnIndex(QRCodeDB.COL_ID));
                 String[] e = new String[]{String.valueOf(name)};
                 int row = getContentResolver().delete(u, ex, e);
                 ShowMS("Delete");
@@ -68,14 +68,13 @@ public class QRCodeMenuActivity extends Activity implements View.OnClickListener
 
     }
     public void ran1 (View view){
-
-
-    }
-    public void ran2 (View view){
         adapter.clear();
         Intent intent = new Intent(getApplicationContext(),QRCodeMenuHourActivity.class);
         startActivity(intent);
         finish();
+    }
+    public void ran2 (View view){
+
     }
     public void btnBack(View v) {
         adapter.clear();

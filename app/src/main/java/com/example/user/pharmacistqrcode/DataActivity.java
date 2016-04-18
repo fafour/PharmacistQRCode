@@ -26,8 +26,6 @@ public class DataActivity extends Activity {
 
     }
     public void btnBack(View v){
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(intent);
         finish();
 
     }

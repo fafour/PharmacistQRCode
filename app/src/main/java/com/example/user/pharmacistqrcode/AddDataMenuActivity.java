@@ -10,12 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class AddDataMenuActivity extends Activity implements View.OnClickListener,AdapterView.OnItemClickListener{
-    public static ArrayList<item> itemArrayList = new ArrayList<>();
+    ArrayList<item> itemArrayLists = new ArrayList<>();
     ListView listView;
     ItemAdapter adapter;
 
@@ -27,13 +28,18 @@ public class AddDataMenuActivity extends Activity implements View.OnClickListene
         Uri u =Uri.parse("content://productDB");
         Cursor c =getContentResolver().query(u, null, null, null, null);
         while (c.moveToNext()){
-            itemArrayList.add(new item(c.getInt(1), c.getString(2), c.getString(3)));
+            itemArrayLists.add(new item(c.getInt(1), c.getString(2), c.getString(3)));
         }
 
-        adapter = new ItemAdapter(this, itemArrayList);
+        adapter = new ItemAdapter(this, itemArrayLists);
         listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
+
+        String b = "";
+        TextView a = (TextView) findViewById(R.id.android1);
+
+
 
     }
 
@@ -58,21 +64,36 @@ public class AddDataMenuActivity extends Activity implements View.OnClickListene
         final int positionToRemove = position;
         adb.setItems(items, new AlertDialog.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                itemArrayList.remove(positionToRemove);
+                itemArrayLists.remove(positionToRemove);
                 Uri u = Uri.parse("content://productDB");
-                Cursor c =getContentResolver().query(u, null, null, null, null);
+                Cursor c = getContentResolver().query(u, null, null, null, null);
                 String ex = "_id =?";
                 c.moveToPosition(position);
                 String name = c.getString(c.getColumnIndex(ProductDB.COL_ID));
-                String []e = new String[]{String.valueOf(name)};
-                int row = getContentResolver().delete(u,ex,e);
+                String[] e = new String[]{String.valueOf(name)};
+                int row = getContentResolver().delete(u, ex, e);
                 ShowMS("Delete");
                 listView.setAdapter(adapter);
-            }});
+            }
+        });
         adb.show();
     }
+    public void ran1 (View view){
+
+    }
+    public void ran2 (View view){
+        adapter.clear();
+        Intent intent = new Intent(getApplicationContext(),AddDataMenuHourActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+
 
     public void ShowMS (String ms){
         Toast.makeText(this, ms, Toast.LENGTH_SHORT).show();
     }
+
+
 }

@@ -1,30 +1,31 @@
 package com.example.user.pharmacistqrcode;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Calendar;
+import java.util.TimeZone;
 
-public class EditTime1Activity extends Activity implements AdapterView.OnItemSelectedListener {
+public class EditTime1Activity extends Activity  {
     private int pHour1;
     private int pMinute1;
     static final int TIME_DIALOG_ID = 0;
     TextView timeEditQRcode1;
-    MediaPlayer mediaPlayer;
+    ArrayList<PendingIntent> intentarray = new ArrayList<PendingIntent>();
+    ArrayList<Calendar>calTimes = new ArrayList<Calendar>();
 
 
     @Override
@@ -44,21 +45,37 @@ public class EditTime1Activity extends Activity implements AdapterView.OnItemSel
 
 
         if (SettingSystemActivity.TIME_1 == null && a[1].equals("เช้า")  ) {
-            timeEditQRcode1.setText("09.30");
+            timeEditQRcode1.setText("08.30");
+            pHour1 = 8;
+            pMinute1 =30;
         }else if (SettingSystemActivity.TIME_1 != null && a[1].equals("เช้า")  ) {
             timeEditQRcode1.setText(SettingSystemActivity.TIME_1);
+            pHour1 = SettingSystemActivity.TIME_11;
+            pMinute1 = SettingSystemActivity.TIME_12;
         }else if (SettingSystemActivity.TIME_2 == null && a[1].equals("เที่ยง")  ) {
             timeEditQRcode1.setText("13.30");
+            pHour1 = 13;
+            pMinute1 =30;
         }else if (SettingSystemActivity.TIME_2 != null && a[1].equals("เที่ยง")  ) {
             timeEditQRcode1.setText(SettingSystemActivity.TIME_2);
+            pHour1 = SettingSystemActivity.TIME_21;
+            pMinute1 = SettingSystemActivity.TIME_22;
         }else if (SettingSystemActivity.TIME_3 == null && a[1].equals("เย็น")  ) {
             timeEditQRcode1.setText("18.30");
+            pHour1 = 18;
+            pMinute1 =30;
         }else if (SettingSystemActivity.TIME_3 != null && a[1].equals("เย็น")  ) {
             timeEditQRcode1.setText(SettingSystemActivity.TIME_3);
+            pHour1 = SettingSystemActivity.TIME_31;
+            pMinute1 = SettingSystemActivity.TIME_32;
         }else if (SettingSystemActivity.TIME_4 == null && a[1].equals("ก่อนนอน")  ) {
             timeEditQRcode1.setText("22.30");
+            pHour1 = 22;
+            pMinute1 =30;
         }else if (SettingSystemActivity.TIME_4 != null && a[1].equals("ก่อนนอน")  ) {
             timeEditQRcode1.setText(SettingSystemActivity.TIME_4);
+            pHour1 = SettingSystemActivity.TIME_41;
+            pMinute1 = SettingSystemActivity.TIME_42;
         }
 
         if (a[1].equals("เช้า")){
@@ -70,99 +87,6 @@ public class EditTime1Activity extends Activity implements AdapterView.OnItemSel
         }else if (a[1].equals("เย็น")){
             atTime.setText("ตอนเย็น");
         }
-
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        spinner.setOnItemSelectedListener(this);
-        List categories = new ArrayList();
-        categories.add("ไม่มีเสียง");
-        categories.add("เสียง1");
-        categories.add("เสียง2");
-        categories.add("เสียง3");
-        categories.add("เสียง4");
-        categories.add("เสียง5");
-        categories.add("เสียง6");
-        categories.add("เสียง7");
-
-        ArrayAdapter dataAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(dataAdapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id)
-            {
-                if (position==0){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-
-                }
-                else if (position==1){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.aaa);
-                    mediaPlayer.start();
-
-                }
-                else if (position==2){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.ddd);
-                    mediaPlayer.start();
-
-                }
-                else if (position==3){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.fff);
-                    mediaPlayer.start();
-
-                }
-                else if (position==4){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.ggg);
-                    mediaPlayer.start();
-
-                }
-                else if (position==5){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.sss);
-                    mediaPlayer.start();
-
-                }
-                else if (position==6){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.vvv);
-                    mediaPlayer.start();
-
-                }
-                else if (position==7){
-                    if(mediaPlayer!=null) {
-                        mediaPlayer.stop();
-                    }
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.xxx);
-                    mediaPlayer.start();
-
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-
-
-        });
-
 
 
     }
@@ -222,19 +146,45 @@ public class EditTime1Activity extends Activity implements AdapterView.OnItemSel
         cv.put("timeDate", allTime);
         Uri nari = getContentResolver().insert(u, cv);
 
+        setAlarm1(pHour1,pMinute1);
+
         Intent intent = new Intent(getApplicationContext(),QRCodeMenuActivity.class);
         startActivity(intent);
         finish();
 
     }
+    public void setAlarm1(int hour,int min){
+        Calendar cal = Calendar.getInstance();
+        Calendar cal_now = Calendar.getInstance();
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        cal.setTimeZone(TimeZone.getTimeZone("GMT+7"));
+        cal.setTimeInMillis(System.currentTimeMillis());
+        cal.set(Calendar.HOUR_OF_DAY, hour);
+        cal.set(Calendar.MINUTE,min);
+        cal.set(Calendar.SECOND, 00);
+        cal.set(Calendar.MILLISECOND, 00);
+        if(cal.before(cal_now)){//if its in the past increment
+            cal.add(Calendar.DATE,1);
+        }
 
+        calTimes.add(cal);
+
+        alarm();
+    }
+    public void alarm(){
+        AlarmManager[] alarmManager=new AlarmManager[calTimes.size()];
+        for (int i = 0; i < calTimes.size();i++) {
+
+            Intent intent = new Intent(this,
+                    AlarmReceiver.class);
+            PendingIntent pi = PendingIntent.getBroadcast(this, i, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            alarmManager[i] = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            alarmManager[i].set(AlarmManager.RTC_WAKEUP,calTimes.get(i).getTimeInMillis()
+                    ,pi);
+
+            intentarray.add(pi);
+        }
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
 }

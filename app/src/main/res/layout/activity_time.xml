@@ -47,6 +47,7 @@
             android:textSize="20dp"
             android:textColor="@android:color/black"
             android:onClick="ClickItem"
+            android:checked="true"
             android:id="@+id/type1" />
 
         <RadioButton
@@ -332,36 +333,7 @@
                         android:textSize="20dp"
                         android:textColor="@android:color/black"
                         android:id="@+id/timeEditTime" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20dp"
-                        android:textColor="@android:color/black"
-                        android:text="       เริ่ม : "/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20dp"
-                        android:id="@+id/timeEdit5"
-                        android:textColor="@android:color/black"
-                        android:text="10.30"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20dp"
-                        android:textColor="@android:color/black"
-                        android:text="  "/>
-
-                    <Button
-                        android:id="@+id/btnEdit1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20dp"
-                        android:onClick="time5"
-                        android:textColor="@android:color/black"
-                        android:text="ตั้งค่าเวลา" />
 
                 </LinearLayout>
 
@@ -370,18 +342,6 @@
         </LinearLayout>
 
     </RadioGroup>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="เล์อกเสียงแจ้งเตือน :"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:textSize="20dp" />
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_light"
         />
     <TextView
         android:layout_width="match_parent"

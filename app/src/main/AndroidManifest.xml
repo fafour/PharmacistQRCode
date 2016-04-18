@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -90,22 +91,6 @@
             android:process=":remote" />
 
         <activity
-            android:name=".MorningActivity"
-            android:label="@string/title_activity_morning" >
-        </activity>
-        <activity
-            android:name=".AfternoonActivity"
-            android:label="@string/title_activity_afternoon" >
-        </activity>
-        <activity
-            android:name=".DinnerActivity"
-            android:label="@string/title_activity_dinner" >
-        </activity>
-        <activity
-            android:name=".BedActivity"
-            android:label="@string/title_activity_bed" >
-        </activity>
-        <activity
             android:name=".EditTime1Activity"
             android:label="@string/title_activity_edit_time1" >
         </activity>
@@ -137,6 +122,38 @@
             android:name=".WarningActivity"
             android:label="@string/title_activity_warning" >
         </activity>
+        <activity
+            android:name=".AddDataMenuHourActivity"
+            android:label="@string/title_activity_add_data_menu_hour" >
+        </activity>
+
+        <provider
+            android:name=".HourDB"
+            android:authorities="hour"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
+
+        <activity
+            android:name=".QRCodeMenuHourActivity"
+            android:label="@string/title_activity_qrcode_menu_hour" >
+        </activity>
+
+        <provider
+            android:name=".QRCodeDB"
+            android:authorities="qrcodeHour"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
+        <provider
+            android:name=".TimeDB"
+            android:authorities="time"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
+        <receiver
+        android:name=".AlarmReceiver1"
+        android:process=":remote" />
     </application>
 
 </manifest>

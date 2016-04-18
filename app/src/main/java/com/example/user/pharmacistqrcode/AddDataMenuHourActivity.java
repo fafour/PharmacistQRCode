@@ -14,42 +14,55 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class QRCodeMenuActivity extends Activity implements View.OnClickListener,AdapterView.OnItemClickListener {
-    ArrayList<qrcode> itemQRCodeArrayLists = new ArrayList<>();
+public class AddDataMenuHourActivity extends Activity implements View.OnClickListener,AdapterView.OnItemClickListener{
+    ArrayList<item> itemArrayList = new ArrayList<>();
     ListView listView;
-    QRCodeAdapter adapter;
+    ItemAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qrcode_menu);
+        setContentView(R.layout.activity_add_data_menu_hour);
 
-        Uri u =Uri.parse("content://qrcode");
+        Uri u =Uri.parse("content://hour");
         Cursor c =getContentResolver().query(u, null, null, null, null);
         while (c.moveToNext()){
-            itemQRCodeArrayLists.add(new qrcode(c.getInt(1), c.getString(2), c.getString(3)));
+            itemArrayList.add(new item(c.getInt(1), c.getString(2), c.getString(3)));
         }
 
-        adapter = new QRCodeAdapter(this, itemQRCodeArrayLists);
-        listView = (ListView) findViewById(R.id.listView);
+        adapter = new ItemAdapter(this, itemArrayList);
+        listView = (ListView) findViewById(R.id.listView1);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
+    }
+
+
+    @Override
+    public void onClick(View v) {
 
     }
+    public void btnBack(View v) {
+        adapter.clear();
+        Intent intent = new Intent(getApplicationContext(),HistoryActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-        AlertDialog.Builder adb=new AlertDialog.Builder(QRCodeMenuActivity.this);
+        AlertDialog.Builder adb=new AlertDialog.Builder(AddDataMenuHourActivity.this);
         adb.setTitle("Select");
         final CharSequence[] items = { "Delete"};
         final int positionToRemove = position;
         adb.setItems(items, new AlertDialog.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                itemQRCodeArrayLists.remove(positionToRemove);
-                Uri u = Uri.parse("content://qrcode");
-
+                itemArrayList.remove(positionToRemove);
+                Uri u = Uri.parse("content://hour");
                 Cursor c = getContentResolver().query(u, null, null, null, null);
                 String ex = "_id =?";
                 c.moveToPosition(position);
-                String name = c.getString(c.getColumnIndex(ProductDB.COL_ID));
+                String name = c.getString(c.getColumnIndex(HourDB.COL_ID));
                 String[] e = new String[]{String.valueOf(name)};
                 int row = getContentResolver().delete(u, ex, e);
                 ShowMS("Delete");
@@ -58,30 +71,22 @@ public class QRCodeMenuActivity extends Activity implements View.OnClickListener
         });
         adb.show();
     }
+    public void ran1 (View view){
+        adapter.clear();
+        Intent intent = new Intent(getApplicationContext(),AddDataMenuActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    public void ran2 (View view){
+
+    }
+
+
+
 
     public void ShowMS (String ms){
         Toast.makeText(this, ms, Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onClick(View v) {
-
-    }
-    public void ran1 (View view){
-
-
-    }
-    public void ran2 (View view){
-        adapter.clear();
-        Intent intent = new Intent(getApplicationContext(),QRCodeMenuHourActivity.class);
-        startActivity(intent);
-        finish();
-    }
-    public void btnBack(View v) {
-        adapter.clear();
-        Intent intent = new Intent(getApplicationContext(),HistoryActivity.class);
-        startActivity(intent);
-        finish();
-    }
 
 }

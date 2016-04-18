@@ -4,9 +4,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+/**
+ * Created by User on 18/4/2559.
+ */
+public class AlarmReceiver1 extends BroadcastReceiver {
 
-public class AlarmReceiver extends BroadcastReceiver {
-    
     @Override
     public void onReceive(Context context, Intent intent) {
         intent = new Intent(context, ShowEvent.class);
