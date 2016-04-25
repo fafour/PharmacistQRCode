@@ -46,7 +46,8 @@ public class TimeActivity extends Activity  {
     String sing = "ไม่มีเสียง";
 
     ArrayList<PendingIntent>intentarray = new ArrayList<PendingIntent>();
-    ArrayList<Calendar>calTimes = new ArrayList<Calendar>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -349,8 +350,6 @@ public class TimeActivity extends Activity  {
         String menuItem = "ชื่อ :" + name + " ประเภท :" + type + " ชนิด : " + item + " "+all;
 
 
-
-
         if (type5.isChecked()){
             if(time1.isChecked()){
                 timeAll = timeAll+"  "+timeEdit1.getText();
@@ -393,9 +392,18 @@ public class TimeActivity extends Activity  {
             cv.put("timeDate", allTime);
             Uri nari = getContentResolver().insert(u, cv);
 
+            setAlarm(data);
+
             Intent intent = new Intent(getApplicationContext(),AddDataMenuHourActivity.class);
             startActivity(intent);
             finish();
+        }else {
+            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+            dlgAlert.setMessage("กรุณาตรวจสอบใหม่อีกครั้ง");
+            dlgAlert.setTitle("ข้อมูลไม่ถูกต้อง");
+            dlgAlert.setPositiveButton("OK", null);
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
         }
     }
 
@@ -413,13 +421,13 @@ public class TimeActivity extends Activity  {
             cal.add(Calendar.DATE,1);
         }
 
-        calTimes.add(cal);
+        MainActivity.calTimes.add(cal);
 
         alarm();
     }
     public void alarm(){
-        AlarmManager[] alarmManager=new AlarmManager[calTimes.size()];
-        for (int i = 0; i < calTimes.size();i++) {
+        AlarmManager[] alarmManager=new AlarmManager[MainActivity.calTimes.size()];
+        for (int i = 0; i < MainActivity.calTimes.size();i++) {
 
             Intent intent = new Intent(TimeActivity.this,
                     AlarmReceiver.class);
@@ -427,25 +435,175 @@ public class TimeActivity extends Activity  {
                     TimeActivity.this, i, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
             alarmManager[i] = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-            alarmManager[i].set(AlarmManager.RTC_WAKEUP,calTimes.get(i).getTimeInMillis()
+            alarmManager[i].set(AlarmManager.RTC_WAKEUP,MainActivity.calTimes.get(i).getTimeInMillis()
                     ,pi);
 
-            intentarray.add(pi);
+            MainActivity.intentarray.add(pi);
         }
     }
 
-    public void setAlarm(String txt){
+    public void setAlarm(String x){
+
         AlarmManager alarmManager;
-            Intent intent = new Intent(TimeActivity.this,
-                    AlarmReceiver.class);
-            PendingIntent pi = PendingIntent.getBroadcast(
-                    TimeActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            if(x =="ทุกๆ 1 ชั่วโมง") {
+                Intent intent = new Intent(TimeActivity.this,
+                        AlarmReceiver1.class);
+                PendingIntent pi = PendingIntent.getBroadcast(
+                        TimeActivity.this, MainActivity.io, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
-                    System.currentTimeMillis() + 1000 * 60, 1000 * 60 * 2, pi);
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*60*60 , 1000*60*60
+                        , pi);
+
+                intentarray.add(pi);
+                MainActivity.io++;
+            }else if(x =="ทุกๆ 2 ชั่วโมง") {
+                Intent intent = new Intent(TimeActivity.this,
+                        AlarmReceiver1.class);
+                PendingIntent pi = PendingIntent.getBroadcast(
+                        TimeActivity.this, MainActivity.io, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*60*60*2 , 1000*60*60*2
+                        , pi);
+
+                intentarray.add(pi);
+                MainActivity.io++;
+            }else if(x =="ทุกๆ 3 ชั่วโมง") {
+                Intent intent = new Intent(TimeActivity.this,
+                        AlarmReceiver1.class);
+                PendingIntent pi = PendingIntent.getBroadcast(
+                        TimeActivity.this, MainActivity.io, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*60*60*3 , 1000*60*60*3
+                        , pi);
+
+                intentarray.add(pi);
+                MainActivity.io++;
+            }else if(x =="ทุกๆ 4 ชั่วโมง") {
+                Intent intent = new Intent(TimeActivity.this,
+                        AlarmReceiver1.class);
+                PendingIntent pi = PendingIntent.getBroadcast(
+                        TimeActivity.this, MainActivity.io, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*60*60*4 , 1000*60*60*4
+                        , pi);
+
+                intentarray.add(pi);
+                MainActivity.io++;
+            }else if(x =="ทุกๆ 5 ชั่วโมง") {
+                Intent intent = new Intent(TimeActivity.this,
+                        AlarmReceiver1.class);
+                PendingIntent pi = PendingIntent.getBroadcast(
+                        TimeActivity.this, MainActivity.io, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*60*60*5 , 1000*60*60*5
+                        , pi);
+
+                intentarray.add(pi);
+                MainActivity.io++;
+            }else if(x =="ทุกๆ 6 ชั่วโมง") {
+                Intent intent = new Intent(TimeActivity.this,
+                        AlarmReceiver1.class);
+                PendingIntent pi = PendingIntent.getBroadcast(
+                        TimeActivity.this, MainActivity.io, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*60*60*6 , 1000*60*60*6
+                        , pi);
+
+                intentarray.add(pi);
+                MainActivity.io++;
+            }else if(x =="ทุกๆ 7 ชั่วโมง") {
+                Intent intent = new Intent(TimeActivity.this,
+                        AlarmReceiver1.class);
+                PendingIntent pi = PendingIntent.getBroadcast(
+                        TimeActivity.this, MainActivity.io, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*60*60*7 , 1000*60*60*7
+                        , pi);
+
+                intentarray.add(pi);
+                MainActivity.io++;
+            }else if(x =="ทุกๆ 8 ชั่วโมง") {
+                Intent intent = new Intent(TimeActivity.this,
+                        AlarmReceiver1.class);
+                PendingIntent pi = PendingIntent.getBroadcast(
+                        TimeActivity.this, MainActivity.io, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*60*60*8 , 1000*60*60*8
+                        , pi);
+
+                intentarray.add(pi);
+                MainActivity.io++;
+            }else if(x =="ทุกๆ 9 ชั่วโมง") {
+                Intent intent = new Intent(TimeActivity.this,
+                        AlarmReceiver1.class);
+                PendingIntent pi = PendingIntent.getBroadcast(
+                        TimeActivity.this, MainActivity.io, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*60*60*9 , 1000*60*60*9
+                        , pi);
+
+                intentarray.add(pi);
+                MainActivity.io++;
+            }else if(x =="ทุกๆ 10 ชั่วโมง") {
+                Intent intent = new Intent(TimeActivity.this,
+                        AlarmReceiver1.class);
+                PendingIntent pi = PendingIntent.getBroadcast(
+                        TimeActivity.this, MainActivity.io, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*60*60*10 , 1000*60*60*10
+                        , pi);
+
+                intentarray.add(pi);
+                MainActivity.io++;
+            }else if(x =="ทุกๆ 11 ชั่วโมง") {
+                Intent intent = new Intent(TimeActivity.this,
+                        AlarmReceiver1.class);
+                PendingIntent pi = PendingIntent.getBroadcast(
+                        TimeActivity.this, MainActivity.io, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*60*60*11 , 1000*60*60*11
+                        , pi);
+
+                intentarray.add(pi);
+                MainActivity.io++;
+            }else if(x =="ทุกๆ 12 ชั่วโมง") {
+                Intent intent = new Intent(TimeActivity.this,
+                        AlarmReceiver1.class);
+                PendingIntent pi = PendingIntent.getBroadcast(
+                        TimeActivity.this, MainActivity.io, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*60*60*12 , 1000*60*60*12
+                        , pi);
+
+                intentarray.add(pi);
+                MainActivity.io++;
+            }
+
     }
-
 
     public void btnBack(View v){
         Intent intent = new Intent(getApplicationContext(),AddActivity.class);

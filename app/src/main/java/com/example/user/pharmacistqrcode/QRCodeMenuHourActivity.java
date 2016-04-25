@@ -15,7 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class QRCodeMenuHourActivity extends Activity implements View.OnClickListener,AdapterView.OnItemClickListener {
-    ArrayList<qrcode> itemQRCodeArrayLists = new ArrayList<>();
+    ArrayList<qrcode> itemQRCodeArrayLists = new ArrayList<qrcode>();
     ListView listView;
     QRCodeAdapter adapter;
     @Override

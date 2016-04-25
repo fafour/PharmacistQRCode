@@ -154,6 +154,18 @@
         <receiver
         android:name=".AlarmReceiver1"
         android:process=":remote" />
+        <receiver
+            android:name=".AlarmReceiver2"
+            android:process=":remote" />
+        <receiver
+            android:name=".AlarmReceiver3"
+            android:process=":remote" />
+        <receiver
+            android:name=".AlarmReceiver4"
+            android:process=":remote" />
+        <receiver
+            android:name=".AlarmReceiver5"
+            android:process=":remote" />
     </application>
 
 </manifest>

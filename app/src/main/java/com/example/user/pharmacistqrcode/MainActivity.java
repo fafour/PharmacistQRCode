@@ -15,9 +15,19 @@ import java.util.Calendar;
 public class MainActivity extends Activity {
     ImageButton scanQRCode, alert, history, add;
     Button qrCode, setting, menu, addItem;
-
-    ArrayList<PendingIntent> intentarray = new ArrayList<PendingIntent>();
-    ArrayList<Calendar>calTimes = new ArrayList<Calendar>();
+    public static int io = 0;
+    public static ArrayList<PendingIntent> intentarray = new ArrayList<PendingIntent>();
+    public static ArrayList<Calendar>calTimes = new ArrayList<Calendar>();
+    public static ArrayList<PendingIntent> intentarray1 = new ArrayList<PendingIntent>();
+    public static ArrayList<Calendar>calTimes1 = new ArrayList<Calendar>();
+    public static ArrayList<PendingIntent> intentarray2 = new ArrayList<PendingIntent>();
+    public static ArrayList<Calendar>calTimes2 = new ArrayList<Calendar>();
+    public static ArrayList<PendingIntent> intentarray3 = new ArrayList<PendingIntent>();
+    public static ArrayList<Calendar>calTimes3 = new ArrayList<Calendar>();
+    public static ArrayList<PendingIntent> intentarray4 = new ArrayList<PendingIntent>();
+    public static ArrayList<Calendar>calTimes4 = new ArrayList<Calendar>();
+    public static ArrayList<PendingIntent> intentarray5 = new ArrayList<PendingIntent>();
+    public static ArrayList<Calendar>calTimes5 = new ArrayList<Calendar>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

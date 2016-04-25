@@ -1,6 +1,7 @@
 package com.example.user.pharmacistqrcode;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -152,6 +153,8 @@ public class DirectionActivity extends Activity {
 
 
     public void btnBack(View v) {
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);;
+        startActivity(intent);
         finish();
     }
 }

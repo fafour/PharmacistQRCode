@@ -29,6 +29,7 @@ public class DecoderActivity extends Activity implements OnQRCodeReadListener {
         Intent intent = new Intent(getApplication(),DataActivity.class);
         intent.putExtra("txt",text.toString());
         startActivity(intent);
+        finish();
     }
 
     @Override

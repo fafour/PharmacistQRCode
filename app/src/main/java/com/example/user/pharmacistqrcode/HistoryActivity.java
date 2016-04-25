@@ -33,6 +33,8 @@ public class HistoryActivity extends Activity {
         finish();
     }
     public void btnBack(View v) {
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(intent);
         finish();
     }
 

@@ -329,23 +329,23 @@ public class EditTime3Activity extends Activity {
             cal.add(Calendar.DATE,1);
         }
 
-        calTimes.add(cal);
+        MainActivity.calTimes3.add(cal);
 
         alarm();
     }
     public void alarm(){
-        AlarmManager[] alarmManager=new AlarmManager[calTimes.size()];
-        for (int i = 0; i < calTimes.size();i++) {
+        AlarmManager[] alarmManager=new AlarmManager[MainActivity.calTimes3.size()];
+        for (int i = 0; i < MainActivity.calTimes3.size();i++) {
 
             Intent intent = new Intent(this,
-                    AlarmReceiver.class);
+                    AlarmReceiver4.class);
             PendingIntent pi = PendingIntent.getBroadcast(this, i, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
             alarmManager[i] = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-            alarmManager[i].set(AlarmManager.RTC_WAKEUP,calTimes.get(i).getTimeInMillis()
+            alarmManager[i].set(AlarmManager.RTC_WAKEUP,MainActivity.calTimes3.get(i).getTimeInMillis()
                     ,pi);
 
-            intentarray.add(pi);
+            MainActivity.intentarray3.add(pi);
         }
     }
 

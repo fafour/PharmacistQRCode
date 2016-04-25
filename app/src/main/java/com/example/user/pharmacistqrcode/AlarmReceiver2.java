@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 
 /**
- * Created by User on 18/4/2559.
+ * Created by User on 20/4/2559.
  */
-public class AlarmReceiver1 extends BroadcastReceiver {
+public class AlarmReceiver2 extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
