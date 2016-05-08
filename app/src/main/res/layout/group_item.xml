@@ -9,6 +9,6 @@
         android:id="@+id/laptop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:paddingLeft="25dp"/>
+        android:textSize="18dp"
+        android:paddingLeft="15dp"/>
 </LinearLayout>

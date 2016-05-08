@@ -27,6 +27,7 @@ public class ShowEvent extends Activity implements OnClickListener {
     KeyguardLock kl;
     Ringtone r;
     MediaPlayer mediaPlayer;
+    Vibrator v;
 
     String sings = "เสียง1";
 
@@ -61,23 +62,36 @@ public class ShowEvent extends Activity implements OnClickListener {
     }
 
     @Override
-    public void onClick(View v) {
-        if(v.getId() == R.id.btnStop){
+    public void onClick(View view) {
+        if(view.getId() == R.id.btnStop){
             this.finish();
         }
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.cancel();
     }
 
     @Override
     protected void onResume() {
-        if (sings=="สั่น"){
+        if (sings=="ไม่มีเสียง"){
             super.onResume();
             wl.acquire();//must call this!
             if(mediaPlayer!=null) {
                 mediaPlayer.stop();
             }
-            long[] pattern = {0, 100, 1000, 300, 200, 100, 500, 200, 100};
-            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            v.vibrate(pattern, -1);
+            mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.aaa);
+            mediaPlayer.pause();
+
+        }
+
+        else if (sings=="สั่น"){
+            super.onResume();
+            wl.acquire();//must call this!
+            if(mediaPlayer!=null) {
+                mediaPlayer.stop();
+            }
+            long[] pattern = {0, 1000, 500, 1000, 500, 1000, 2000};
+            v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(pattern, 0);
             mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.aaa);
             mediaPlayer.pause();
 

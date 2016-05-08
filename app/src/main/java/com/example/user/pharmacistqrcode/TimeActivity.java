@@ -347,7 +347,7 @@ public class TimeActivity extends Activity  {
         String type = getIntent().getStringExtra("type");
         String item = getIntent().getStringExtra("item");
         String all = getIntent().getStringExtra("all");
-        String menuItem = "ชื่อ :" + name + " ประเภท :" + type + " ชนิด : " + item + " "+all;
+        String menuItem = "ชื่อ :" + name + " " + type + "  " + item + " "+all;
 
 
         if (type5.isChecked()){

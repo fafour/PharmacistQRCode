@@ -20,7 +20,7 @@ public class DataActivity extends Activity {
 
         String a []= txt.split(";");
         txt0.setText("  ชื่อยา: "+ a[0]);
-        txt1.setText("  ช่วงเวลารับประทาน : "+ a[1]);
+        txt1.setText("  ช่วงเวลา : "+ a[1]);
         txt2.setText("  รับประทาน : "+ a[2]);
         txt3.setText("  จำนวน : "+ a[3]);
 

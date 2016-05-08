@@ -119,7 +119,7 @@ public class AddActivity extends Activity implements AdapterView.OnItemSelectedL
 
                     break;
             case R.id.type2:
-                type = "อาหารเสริม/วิตามิน";
+                type = "อาหารเสริม";
                 icon = R.drawable.tabletsicon;
                 if (checked)
 

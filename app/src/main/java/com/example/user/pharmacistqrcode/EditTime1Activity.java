@@ -36,7 +36,7 @@ public class EditTime1Activity extends Activity  {
         TextView txt0 = (TextView) findViewById(R.id.txtData1);
         TextView txt1 = (TextView) findViewById(R.id.txtData2);
         String a []= txt.split(";");
-        txt0.setText("    ชื่อยา: "+ a[0]+"  ช่วงเวลารับประทาน : "+ a[1]);
+        txt0.setText("    ชื่อยา: "+ a[0]+"  ช่วงเวลา : "+ a[1]);
         txt1.setText("    รับประทาน : "+ a[2]+"  จำนวน : "+ a[3]);
 
 
@@ -136,8 +136,8 @@ public class EditTime1Activity extends Activity  {
         String txt = getIntent().getStringExtra("txt");
         String a []= txt.split(";");
         int icon = R.drawable.images;
-        String menuItem = "  ชื่อยา: "+ a[0]+"  ช่วงเวลารับประทาน : "+ a[1]+"   จำนวน : "+ a[3];
-        String allTime = "    รับประทาน : "+ a[2]+"  เวลา : "+timeEditQRcode1.getText().toString();
+        String menuItem = "  ชื่อยา: "+ a[0]+" ช่วงเวลา : "+ a[1]+" "+ a[3];
+        String allTime = "  รับประทาน : "+ a[2]+"  เวลา : "+timeEditQRcode1.getText().toString();
 
         Uri u =Uri.parse("content://qrcode");
         ContentValues cv = new ContentValues();

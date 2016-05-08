@@ -69,7 +69,7 @@ public class QRCodeMenuHourActivity extends Activity implements View.OnClickList
     }
     public void ran1 (View view){
         adapter.clear();
-        Intent intent = new Intent(getApplicationContext(),QRCodeMenuHourActivity.class);
+        Intent intent = new Intent(getApplicationContext(),QRCodeMenuActivity.class);
         startActivity(intent);
         finish();
     }

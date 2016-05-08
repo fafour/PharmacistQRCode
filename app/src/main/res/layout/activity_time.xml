@@ -2,14 +2,15 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/green"
+    android:background="@android:color/background_light"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:onClick="btnBack"
-        android:text="Back"
-        android:layout_gravity="right" />
+        android:layout_gravity="right"
+        android:background="@drawable/t"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,21 +19,22 @@
         android:layout_gravity="center"
         android:text="ตั้งค่า"
         android:textStyle="bold"
-        android:textSize="30dp"/>
+        android:textSize="25dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/holo_red_dark"
         android:id="@+id/txtData"
-        android:textSize="23dp"/>
+        android:text="data"
+        android:textSize="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="รับประทาน :"
         android:textColor="@android:color/black"
-        android:textSize="20dp"/>
+        android:textSize="18dp"/>
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -42,9 +44,9 @@
 
         <RadioButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="25dp"
             android:text="ก่อนอาหารทันที"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@android:color/black"
             android:onClick="ClickItem"
             android:checked="true"
@@ -52,25 +54,25 @@
 
         <RadioButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="25dp"
             android:text="หลังอาหารทันที"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@android:color/black"
             android:onClick="ClickItem"
             android:id="@+id/type2" />
         <RadioButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="25dp"
             android:text="ก่อนอาหาร 30 นาที"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@android:color/black"
             android:onClick="ClickItem"
             android:id="@+id/type33" />
         <RadioButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="25dp"
             android:text="หลังอาหาร 30 นาที"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@android:color/black"
             android:onClick="ClickItem"
             android:id="@+id/type44" />
@@ -84,7 +86,7 @@
         android:layout_height="wrap_content"
         android:text="ช่วงเวลา :"
         android:textColor="@android:color/black"
-        android:textSize="20dp"/>
+        android:textSize="18dp"/>
 
     <RadioGroup
         android:id="@+id/radioGroup1"
@@ -97,54 +99,54 @@
             android:layout_height="wrap_content"
             android:text="ตามเวลา"
             android:textColor="@android:color/black"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:onClick="ClickItem1"
             android:id="@+id/type5" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="40dp">
+            android:layout_marginLeft="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="31dp"
             android:orientation="horizontal">
 
             <CheckBox
                 android:id="@+id/time1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
-                android:text="    ตอนเช้า    " />
+                android:text=" ตอนเช้า " />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
-                android:text="       เวลา : "/>
+                android:text="เวลา : "/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:id="@+id/timeEdit1"
                 android:textColor="@android:color/black"
-                android:text="7.30"/>
+                android:text="07.30"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
-                android:text="      "/>
+                android:text="         "/>
 
             <Button
                 android:onClick="time1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="13dp"
                 android:textColor="@android:color/black"
                 android:text="เปลี่ยนแปลงเวลา" />
 
@@ -152,27 +154,27 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="31dp"
                 android:orientation="horizontal">
 
                 <CheckBox
                     android:id="@+id/time2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textColor="@android:color/black"
-                    android:text="    ตอนกลางวัน    " />
+                    android:text=" ตอนกลางวัน " />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textColor="@android:color/black"
                     android:text="เวลา : "/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:id="@+id/timeEdit2"
                     android:textColor="@android:color/black"
                     android:text="12.30"/>
@@ -180,16 +182,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textColor="@android:color/black"
-                    android:text="     "/>
+                    android:text=" "/>
 
                 <Button
                     android:id="@+id/btnEdit2"
                     android:onClick="time2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="13dp"
                     android:textColor="@android:color/black"
                     android:text="เปลี่ยนแปลงเวลา" />
 
@@ -197,27 +199,27 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="31dp"
                 android:orientation="horizontal">
 
                 <CheckBox
                     android:id="@+id/time3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textColor="@android:color/black"
-                    android:text="    ตอนเย็น    " />
+                    android:text=" ตอนเย็น " />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textColor="@android:color/black"
-                    android:text="       เวลา : "/>
+                    android:text="เวลา : "/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:id="@+id/timeEdit3"
                     android:textColor="@android:color/black"
                     android:text="18.30"/>
@@ -225,15 +227,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textColor="@android:color/black"
-                    android:text="     "/>
+                    android:text="        "/>
 
                 <Button
                     android:id="@+id/btnEdit3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="13dp"
                     android:onClick="time3"
                     android:textColor="@android:color/black"
                     android:text="เปลี่ยนแปลงเวลา" />
@@ -242,27 +244,27 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="31dp"
                 android:orientation="horizontal">
 
                 <CheckBox
                     android:id="@+id/time4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textColor="@android:color/black"
-                    android:text="    ก่อนนอน    " />
+                    android:text=" ก่อนนอน " />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textColor="@android:color/black"
-                    android:text="      เวลา : "/>
+                    android:text="เวลา : "/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:id="@+id/timeEdit4"
                     android:textColor="@android:color/black"
                     android:text="22.30"/>
@@ -270,15 +272,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:textColor="@android:color/black"
-                    android:text="     "/>
+                    android:text="       "/>
 
                 <Button
                     android:id="@+id/btnEdit4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="13dp"
                     android:onClick="time4"
                     android:textColor="@android:color/black"
                     android:text="เปลี่ยนแปลงเวลา" />
@@ -294,7 +296,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="เป็นชั่วโมง"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@android:color/black"
             android:onClick="ClickItem1"
             android:id="@+id/type6" />
@@ -303,7 +305,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="40dp">
+            android:layout_marginLeft="20dp">
 
             <RadioGroup
                 android:id="@+id/radioGroup2"
@@ -314,14 +316,14 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="31dp"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/editHour"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20dp"
+                        android:textSize="13dp"
                         android:onClick="time99"
                         android:textColor="@android:color/black"
                         android:text="เลือกชั่วโมง" />
@@ -330,7 +332,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="ทุกๆ 1 ชั่วโมง"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         android:textColor="@android:color/black"
                         android:id="@+id/timeEditTime" />
 
@@ -343,20 +345,16 @@
 
     </RadioGroup>
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="   "
-        android:textStyle="bold"
-        android:textSize="20dp" />
+
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:layout_height="37dp"
+        android:textSize="15dp"
         android:onClick="save"
         android:textColor="@android:color/black"
+        android:background="@android:color/holo_blue_dark"
         android:layout_gravity="center"
         android:gravity="center"
         android:text="บันทึกรายการ" />

@@ -52,8 +52,8 @@ public class SettingSystemActivity extends Activity implements AdapterView.OnIte
     static int TIME_42 = 0;
 
     static String SING= null;
-    String song = "สั่น";
-    Vibrator mVibrator;
+    String song = "ไม่มีเสียง";
+    Vibrator v;
 
 
     @Override
@@ -97,6 +97,7 @@ public class SettingSystemActivity extends Activity implements AdapterView.OnIte
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
         List categories = new ArrayList();
+        categories.add("ไม่มีเสียง");
         categories.add("สั่น");
         categories.add("เสียง1");
         categories.add("เสียง2");
@@ -118,73 +119,98 @@ public class SettingSystemActivity extends Activity implements AdapterView.OnIte
                     if(mediaPlayer!=null) {
                         mediaPlayer.stop();
                     }
-                    long[] pattern = {0, 100, 1000, 300, 200, 100, 500, 200, 100};
-                    Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    v.vibrate(pattern, -1);
-                    song = "สั่น";
+                    song = "ไม่มีเสียง";
+                    v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    v.cancel();
 
                 }
                 else if (position==1){
                     if(mediaPlayer!=null) {
                         mediaPlayer.stop();
                     }
-                    song = "เสียง1";
-                    mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.aaa);
-                    mediaPlayer.start();
+
+                    long[] pattern = {0, 1000, 500, 1000, 500, 1000, 2000};
+                    v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    v.vibrate(pattern, 0);
+                    song = "สั่น";
+
 
                 }
                 else if (position==2){
                     if(mediaPlayer!=null) {
                         mediaPlayer.stop();
                     }
-                    song = "เสียง2";
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.ddd);
+                    song = "เสียง1";
+                    mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.aaa);
                     mediaPlayer.start();
+                    v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    v.cancel();
 
                 }
                 else if (position==3){
                     if(mediaPlayer!=null) {
                         mediaPlayer.stop();
                     }
-                    song = "เสียง3";
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.fff);
+                    song = "เสียง2";
+                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.ddd);
                     mediaPlayer.start();
+                    v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    v.cancel();
 
                 }
                 else if (position==4){
                     if(mediaPlayer!=null) {
                         mediaPlayer.stop();
                     }
-                    song = "เสียง4";
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.ggg);
+                    song = "เสียง3";
+                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.fff);
                     mediaPlayer.start();
+                    v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    v.cancel();
 
                 }
                 else if (position==5){
                     if(mediaPlayer!=null) {
                         mediaPlayer.stop();
                     }
-                    song = "เสียง5";
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.sss);
+                    song = "เสียง4";
+                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.ggg);
                     mediaPlayer.start();
+                    v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    v.cancel();
 
                 }
                 else if (position==6){
                     if(mediaPlayer!=null) {
                         mediaPlayer.stop();
                     }
-                    song = "เสียง6";
-                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.vvv);
+                    song = "เสียง5";
+                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.sss);
                     mediaPlayer.start();
+                    v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    v.cancel();
 
                 }
                 else if (position==7){
                     if(mediaPlayer!=null) {
                         mediaPlayer.stop();
                     }
+                    song = "เสียง6";
+                    mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.vvv);
+                    mediaPlayer.start();
+                    v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    v.cancel();
+
+                }
+                else if (position==8){
+                    if(mediaPlayer!=null) {
+                        mediaPlayer.stop();
+                    }
                     song = "เสียง7";
                     mediaPlayer = MediaPlayer.create(getBaseContext() , R.raw.xxx);
                     mediaPlayer.start();
+                    v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    v.cancel();
 
                 }
             }
@@ -199,13 +225,25 @@ public class SettingSystemActivity extends Activity implements AdapterView.OnIte
 
 
     }
-    public void btnBack(View v){
-        if(mediaPlayer!=null) {
-            mediaPlayer.stop();
-        }
-        finish();
-    }
     //-------------------------------------------------------------------------------------------------------------------
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case TIME_DIALOG_ID:
+                return new TimePickerDialog(this,
+                        mTimeSetListener, pHour1, pMinute1, false);
+            case TIME_DIALOG_ID1:
+                return new TimePickerDialog(this,
+                        mTimeSetListener1, pHour2, pMinute2, false);
+            case TIME_DIALOG_ID2:
+                return new TimePickerDialog(this,
+                        mTimeSetListener2, pHour3, pMinute3, false);
+            case TIME_DIALOG_ID3:
+                return new TimePickerDialog(this,
+                        mTimeSetListener3, pHour4, pMinute4, false);
+
+        }
+        return null;
+    }
     private TimePickerDialog.OnTimeSetListener mTimeSetListener =
             new TimePickerDialog.OnTimeSetListener() {
                 public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -226,24 +264,6 @@ public class SettingSystemActivity extends Activity implements AdapterView.OnIte
                         .append(pad(pHour1)).append(":")
                         .append(pad(pMinute1)));
     }
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-            case TIME_DIALOG_ID:
-                return new TimePickerDialog(this,
-                        mTimeSetListener, pHour1, pMinute1, false);
-            case TIME_DIALOG_ID1:
-                return new TimePickerDialog(this,
-                        mTimeSetListener1, pHour2, pMinute2, false);
-            case TIME_DIALOG_ID2:
-                return new TimePickerDialog(this,
-                        mTimeSetListener2, pHour3, pMinute3, false);
-            case TIME_DIALOG_ID3:
-                return new TimePickerDialog(this,
-                        mTimeSetListener3, pHour4, pMinute4, false);
-
-        }
-        return null;
-    }
     private void displayToast() {
         Toast.makeText(this, new StringBuilder().append("Update Time ").append(timeEdit1.getText()), Toast.LENGTH_SHORT).show();
         TIME_1 = (String) timeEdit1.getText();
@@ -259,7 +279,11 @@ public class SettingSystemActivity extends Activity implements AdapterView.OnIte
     public void time1(View view) {
         timeEdit1 = (TextView) findViewById(R.id.timeEdit1);
         showDialog(TIME_DIALOG_ID);
-
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.cancel();
+        if(mediaPlayer!=null) {
+            mediaPlayer.stop();
+        }
     }
     //---------------------------------------------------------------------------------------------------
     private TimePickerDialog.OnTimeSetListener mTimeSetListener1 =
@@ -295,7 +319,11 @@ public class SettingSystemActivity extends Activity implements AdapterView.OnIte
     public void time2(View view) {
         timeEdit2 = (TextView) findViewById(R.id.timeEdit2);
         showDialog(TIME_DIALOG_ID1);
-
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.cancel();
+        if(mediaPlayer!=null) {
+            mediaPlayer.stop();
+        }
     }
     //-------------------------------------------------------------------------------------------------------------------------------
 
@@ -331,7 +359,11 @@ public class SettingSystemActivity extends Activity implements AdapterView.OnIte
     public void time3(View view) {
         timeEdit3 = (TextView) findViewById(R.id.timeEdit3);
         showDialog(TIME_DIALOG_ID2);
-
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.cancel();
+        if(mediaPlayer!=null) {
+            mediaPlayer.stop();
+        }
     }
     //------------------------------------------------------------------------------------------------------------------------------------
     private TimePickerDialog.OnTimeSetListener mTimeSetListener3 =
@@ -367,6 +399,11 @@ public class SettingSystemActivity extends Activity implements AdapterView.OnIte
     public void time4(View view) {
         timeEdit4 = (TextView) findViewById(R.id.timeEdit4);
         showDialog(TIME_DIALOG_ID3);
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.cancel();
+        if(mediaPlayer!=null) {
+            mediaPlayer.stop();
+        }
     }
 
     @Override
@@ -384,6 +421,16 @@ public class SettingSystemActivity extends Activity implements AdapterView.OnIte
             mediaPlayer.stop();
         }
         SING = song;
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.cancel();
+        finish();
+    }
+    public void btnBack(View view){
+        if(mediaPlayer!=null) {
+            mediaPlayer.stop();
+        }
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.cancel();
         finish();
 
     }

@@ -42,7 +42,7 @@ public class EditTime2Activity extends Activity  {
         TextView txt0 = (TextView) findViewById(R.id.txtData1);
         TextView txt1 = (TextView) findViewById(R.id.txtData2);
         String a []= txt.split(";");
-        txt0.setText("    ชื่อยา: " + a[0] + " เวลารับประทาน : " + a[1]);
+        txt0.setText("    ชื่อยา: " + a[0] + " ช่วงเวลา : " + a[1]);
         txt1.setText("    รับประทาน : " + a[2] + "  จำนวน : " + a[3]);
 
         atTime1 = (TextView) findViewById(R.id.atTime1);
@@ -300,8 +300,8 @@ public class EditTime2Activity extends Activity  {
         String txt = getIntent().getStringExtra("txt");
         String a []= txt.split(";");
         int icon = R.drawable.imagesd;
-        String menuItem = "  ชื่อยา: "+ a[0]+" เวลา : "+ a[1]+"   จำนวน : "+ a[3];
-        String allTime = "    รับประทาน : "+ a[2]+"  เวลา : "+timeEditQRcode1.getText().toString()+"  "+timeEditQRcode2.getText().toString();
+        String menuItem = "  ชื่อยา: "+ a[0]+" ช่วงเวลา :"+ a[1]+" "+ a[3];
+        String allTime = " รับประทาน : "+ a[2]+" เวลา :"+timeEditQRcode1.getText().toString()+"  "+timeEditQRcode2.getText().toString();
 
         Uri u =Uri.parse("content://qrcode");
         ContentValues cv = new ContentValues();

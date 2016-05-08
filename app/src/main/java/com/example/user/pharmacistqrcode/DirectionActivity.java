@@ -153,7 +153,7 @@ public class DirectionActivity extends Activity {
 
 
     public void btnBack(View v) {
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);;
+        Intent intent = new Intent(getApplicationContext(),AddActivity.class);;
         startActivity(intent);
         finish();
     }

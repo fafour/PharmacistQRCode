@@ -2,7 +2,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/green"
+    android:background="@android:color/background_light"
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context="com.javacodegeeks.androidstartactivityforresultexample.ActivityOne"
     xmlns:tools="http://schemas.android.com/tools">
@@ -39,12 +39,15 @@
                 android:background="@drawable/scanqr"
                 android:onClick="btnQRCode" />
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="172dp"
                 android:layout_height="wrap_content"
                 android:onClick="btnQRCode"
                 android:layout_marginBottom="5dp"
                 android:padding="5dp"
-                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/holo_blue_dark"
+                android:textSize="17dp"
                 android:text="Scan QR Code"
                 android:id="@+id/btqrcode" />
                 >
@@ -68,12 +71,15 @@
                 android:background="@drawable/capsule"
                 android:onClick="btnAdd" />
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="172dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:onClick="btnAdd"
+                android:textStyle="bold"
                 android:layout_marginBottom="5dp"
                 android:padding="5dp"
-                android:textSize="20dp"
+                android:background="@android:color/holo_blue_dark"
+                android:textSize="17dp"
                 android:text="Add Pharmacist"
                 android:id="@+id/btAdd" />
             >
@@ -104,12 +110,15 @@
                 android:background="@drawable/alarmicon"
                 android:onClick="btnSetting" />
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="172dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:onClick="btnSetting"
                 android:layout_marginBottom="5dp"
                 android:padding="5dp"
-                android:textSize="20dp"
+                android:background="@android:color/holo_blue_dark"
+                android:textStyle="bold"
+                android:textSize="17dp"
                 android:text="Setting Alerts"
                 android:id="@+id/btSitting" />
             >
@@ -132,12 +141,15 @@
                 android:background="@drawable/his"
                 android:onClick="btnHistory" />
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="172dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:onClick="btnHistory"
+                android:textStyle="bold"
                 android:layout_marginBottom="5dp"
                 android:padding="5dp"
-                android:textSize="20dp"
+                android:background="@android:color/holo_blue_dark"
+                android:textSize="17dp"
                 android:text="History"
                 android:id="@+id/btHistory" />
             >

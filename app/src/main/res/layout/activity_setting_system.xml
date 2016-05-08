@@ -2,33 +2,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/green"
+    android:background="@android:color/background_light"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:onClick="btnBack"
-        android:text="Back"
-        android:layout_gravity="right" />
+        android:layout_gravity="right"
+        android:background="@drawable/t"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ตั้งค่า :"
+        android:text="ตั้งค่า"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:textColor="@android:color/black"
-        android:textSize="30dp"/>
+        android:textSize="25dp"/>
 
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="   "
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:textSize="20dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="9dp"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,14 +34,14 @@
         android:text="ตั้งค่าเวลาเริ่มต้นแบบตามเวลา :"
         android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:textSize="20dp"/>
+        android:textSize="18dp"/>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="40dp">
+        android:layout_marginLeft="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,36 +52,36 @@
                 android:id="@+id/time1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
-                android:text="    ตอนเช้า    " />
+                android:text="ตอนเช้า    " />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:text="       เวลา : "/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:id="@+id/timeEdit1"
                 android:textColor="@android:color/black"
-                android:text="7.30"/>
+                android:text="07.30"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
-                android:text="       "/>
+                android:text=" "/>
 
             <Button
                 android:onClick="time1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:text="เปลี่ยนแปลงเวลา" />
 
@@ -98,20 +96,20 @@
                 android:id="@+id/time2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
-                android:text="    ตอนกลางวัน    " />
+                android:text="ตอนกลางวัน   " />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:text="เวลา : "/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:id="@+id/timeEdit2"
                 android:textColor="@android:color/black"
                 android:text="12.30"/>
@@ -119,16 +117,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
-                android:text="     "/>
+                android:text=" "/>
 
             <Button
                 android:id="@+id/btnEdit2"
                 android:onClick="time2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:text="เปลี่ยนแปลงเวลา" />
 
@@ -143,20 +141,20 @@
                 android:id="@+id/time3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
-                android:text="    ตอนเย็น    " />
+                android:text="ตอนเย็น    " />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:text="       เวลา : "/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:id="@+id/timeEdit3"
                 android:textColor="@android:color/black"
                 android:text="18.30"/>
@@ -164,15 +162,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
-                android:text="     "/>
+                android:text=" "/>
 
             <Button
                 android:id="@+id/btnEdit3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:onClick="time3"
                 android:textColor="@android:color/black"
                 android:text="เปลี่ยนแปลงเวลา" />
@@ -188,20 +186,20 @@
                 android:id="@+id/time4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
-                android:text="    ก่อนนอน    " />
+                android:text="ก่อนนอน    " />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:text="      เวลา : "/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:id="@+id/timeEdit4"
                 android:textColor="@android:color/black"
                 android:text="22.30"/>
@@ -209,15 +207,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/black"
-                android:text="     "/>
+                android:text=" "/>
 
             <Button
                 android:id="@+id/btnEdit4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:onClick="time4"
                 android:textColor="@android:color/black"
                 android:text="เปลี่ยนแปลงเวลา" />
@@ -227,10 +225,8 @@
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="   "
-        android:textStyle="bold"
-        android:textSize="20dp" />
+        android:layout_height="9dp"
+        android:textColor="@android:color/black" />
 
 
     <TextView
@@ -239,20 +235,26 @@
         android:text="เลือกเสียงแจ้งเตือน :"
         android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:textSize="20dp" />
+        android:textSize="18dp" />
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_light"/>
+        android:layout_height="47dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="9dp"
+        android:textColor="@android:color/black" />
     <Button
         android:id="@+id/Save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:layout_width="105dp"
+        android:layout_height="39dp"
+        android:textSize="15dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:onClick="save"
+        android:background="@android:color/holo_blue_dark"
         android:textColor="@android:color/black"
         android:text="บันทึกรายการ" />
 

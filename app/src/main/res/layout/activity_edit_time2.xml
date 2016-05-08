@@ -2,7 +2,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/green"
+    android:background="@android:color/background_light"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
@@ -20,100 +20,82 @@
         android:layout_gravity="center"
         android:text="ตั้งค่า"
         android:textStyle="bold"
-        android:textSize="30dp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="   "
-        android:textStyle="bold"
-        android:textSize="20dp" />
+        android:textSize="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold"
+        android:text="Data"
         android:id="@+id/txtData1"
-        android:textSize="20dp"/>
+        android:textSize="15dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/holo_red_dark"
         android:id="@+id/txtData2"
+        android:text="Data"
         android:textStyle="bold"
-        android:textSize="20dp"/>
+        android:textSize="15dp"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="   "
-        android:textStyle="bold"
-        android:textSize="20dp" />
+        android:layout_height="9dp"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="    ตั้งค่าเวลา"
-        android:textSize="20dp" />
+        android:textStyle="bold"
+        android:textSize="17dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@android:color/black"
-            android:text="   " />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="15dp"
+            android:text="     "
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="DataAtTime"
             android:textColor="@android:color/black"
             android:id="@+id/atTime1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@android:color/black"
-            android:text="   " />
+            android:text="  เริ่มต้น " />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textColor="@android:color/black"
+            android:text=" เวลา :"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@android:color/black"
-            android:text="    เริ่มต้น    " />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@android:color/black"
-            android:text="       เวลา : "/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:id="@+id/timeEditQRcode1"
             android:textColor="@android:color/black"
             android:text="09.30"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@android:color/black"
-            android:text="       "/>
 
         <Button
             android:onClick="time1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@android:color/black"
             android:text="เปลี่ยนแปลงเวลา" />
 
@@ -126,57 +108,46 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@android:color/black"
-            android:text="   " />
+            android:textSize="15dp"
+            android:text="     "
+            android:textColor="@android:color/black" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="15dp"
+            android:text="DataAtTime"
             android:textColor="@android:color/black"
             android:id="@+id/atTime2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@android:color/black"
-            android:text=" " />
+            android:text="  เริ่มต้น " />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textColor="@android:color/black"
+            android:text=" เวลา :"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@android:color/black"
-            android:text="    เริ่มต้น    " />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@android:color/black"
-            android:text="       เวลา : "/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:id="@+id/timeEditQRcode2"
             android:textColor="@android:color/black"
             android:text="09.30"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@android:color/black"
-            android:text="       "/>
 
         <Button
             android:onClick="time2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@android:color/black"
             android:text="เปลี่ยนแปลงเวลา" />
 
@@ -185,21 +156,20 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="   "
-        android:textStyle="bold"
-        android:textSize="20dp" />
+        android:layout_height="9dp"
+        android:textColor="@android:color/black" />
 
 
     <Button
         android:id="@+id/btnSaves"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:layout_width="105dp"
+        android:layout_height="39dp"
+        android:textSize="15dp"
         android:onClick="saves"
         android:textColor="@android:color/black"
         android:layout_gravity="center"
         android:gravity="center"
+        android:background="@android:color/holo_blue_dark"
         android:text="บันทึกรายการ" />
 
 
