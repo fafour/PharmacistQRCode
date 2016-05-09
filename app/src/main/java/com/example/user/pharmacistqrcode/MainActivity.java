@@ -16,6 +16,18 @@ public class MainActivity extends Activity {
     ImageButton scanQRCode, alert, history, add;
     Button qrCode, setting, menu, addItem;
     public static int io = 0;
+    public static int io1 = 0;
+    public static int io2 = 0;
+    public static int io3 = 0;
+    public static int io4 = 0;
+    public static int io5 = 0;
+    public static int io6 = 0;
+    public static int io7 = 0;
+    public static int io8 = 0;
+    public static int io9 = 0;
+    public static int io10 = 0;
+    public static int io11 = 0;
+    public static int io12 = 0;
     public static ArrayList<PendingIntent> intentarray = new ArrayList<PendingIntent>();
     public static ArrayList<Calendar>calTimes = new ArrayList<Calendar>();
     public static ArrayList<PendingIntent> intentarray1 = new ArrayList<PendingIntent>();
@@ -27,7 +39,6 @@ public class MainActivity extends Activity {
     public static ArrayList<PendingIntent> intentarray4 = new ArrayList<PendingIntent>();
     public static ArrayList<Calendar>calTimes4 = new ArrayList<Calendar>();
     public static ArrayList<PendingIntent> intentarray5 = new ArrayList<PendingIntent>();
-    public static ArrayList<Calendar>calTimes5 = new ArrayList<Calendar>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

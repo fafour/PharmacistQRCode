@@ -36,55 +36,62 @@ public class EditTime1Activity extends Activity  {
         TextView txt0 = (TextView) findViewById(R.id.txtData1);
         TextView txt1 = (TextView) findViewById(R.id.txtData2);
         String a []= txt.split(";");
-        txt0.setText("    ชื่อยา: "+ a[0]+"  ช่วงเวลา : "+ a[1]);
-        txt1.setText("    รับประทาน : "+ a[2]+"  จำนวน : "+ a[3]);
+
 
 
         TextView atTime = (TextView) findViewById(R.id.atTime);
         timeEditQRcode1 = (TextView) findViewById(R.id.timeEditQRcode1);
 
 
-        if (SettingSystemActivity.TIME_1 == null && a[1].equals("เช้า")  ) {
+        if (SettingSystemActivity.TIME_1 == null && a[1].equals("Morning   ") ) {
             timeEditQRcode1.setText("08.30");
             pHour1 = 8;
             pMinute1 =30;
-        }else if (SettingSystemActivity.TIME_1 != null && a[1].equals("เช้า")  ) {
+        }else if (SettingSystemActivity.TIME_1 != null && a[1].equals("Morning   ")  ) {
             timeEditQRcode1.setText(SettingSystemActivity.TIME_1);
             pHour1 = SettingSystemActivity.TIME_11;
             pMinute1 = SettingSystemActivity.TIME_12;
-        }else if (SettingSystemActivity.TIME_2 == null && a[1].equals("เที่ยง")  ) {
+        }else if (SettingSystemActivity.TIME_2 == null && a[1].equals(" Lunch  ")  ) {
             timeEditQRcode1.setText("13.30");
             pHour1 = 13;
             pMinute1 =30;
-        }else if (SettingSystemActivity.TIME_2 != null && a[1].equals("เที่ยง")  ) {
+        }else if (SettingSystemActivity.TIME_2 != null && a[1].equals(" Lunch  ")  ) {
             timeEditQRcode1.setText(SettingSystemActivity.TIME_2);
             pHour1 = SettingSystemActivity.TIME_21;
             pMinute1 = SettingSystemActivity.TIME_22;
-        }else if (SettingSystemActivity.TIME_3 == null && a[1].equals("เย็น")  ) {
+        }else if (SettingSystemActivity.TIME_3 == null &&  a[1].equals("  Dinner ")  ) {
             timeEditQRcode1.setText("18.30");
             pHour1 = 18;
             pMinute1 =30;
-        }else if (SettingSystemActivity.TIME_3 != null && a[1].equals("เย็น")  ) {
+        }else if (SettingSystemActivity.TIME_3 != null &&  a[1].equals("  Dinner ")  ) {
             timeEditQRcode1.setText(SettingSystemActivity.TIME_3);
             pHour1 = SettingSystemActivity.TIME_31;
             pMinute1 = SettingSystemActivity.TIME_32;
-        }else if (SettingSystemActivity.TIME_4 == null && a[1].equals("ก่อนนอน")  ) {
+        }else if (SettingSystemActivity.TIME_4 == null && a[1].equals("   Bed")  ) {
             timeEditQRcode1.setText("22.30");
             pHour1 = 22;
             pMinute1 =30;
-        }else if (SettingSystemActivity.TIME_4 != null && a[1].equals("ก่อนนอน")  ) {
+        }else if (SettingSystemActivity.TIME_4 != null && a[1].equals("   Bed")  ) {
             timeEditQRcode1.setText(SettingSystemActivity.TIME_4);
             pHour1 = SettingSystemActivity.TIME_41;
             pMinute1 = SettingSystemActivity.TIME_42;
         }
 
-        if (a[1].equals("เช้า")){
+        if (a[1].equals("Morning   ") ){
+            txt0.setText("    ชื่อยา: "+ a[0]+"  ช่วงเวลา :เช้า ");
+            txt1.setText("    รับประทาน : "+ a[2]+"  จำนวน : "+ a[3]);
             atTime.setText("ตอนเช้า");
-        }else if (a[1].equals("เที่ยง")){
+        }else if (a[1].equals(" Lunch  ")){
+            txt0.setText("    ชื่อยา: "+ a[0]+"  ช่วงเวลา :เที่ยง ");
+            txt1.setText("    รับประทาน : "+ a[2]+"  จำนวน : "+ a[3]);
             atTime.setText("ตอนเที่ยง");
-        }else if (a[1].equals("ก่อนนอน")){
+        }else if ( a[1].equals("   Bed")){
+            txt0.setText("    ชื่อยา: "+ a[0]+"  ช่วงเวลา :ก่อนนอน ");
+            txt1.setText("    รับประทาน : "+ a[2]+"  จำนวน : "+ a[3]);
             atTime.setText("ก่อนนอน");
-        }else if (a[1].equals("เย็น")){
+        }else if (a[1].equals("  Dinner ")){
+            txt0.setText("    ชื่อยา: "+ a[0]+"  ช่วงเวลา :Dinner ");
+            txt1.setText("    รับประทาน : "+ a[2]+"  จำนวน : "+ a[3]);
             atTime.setText("ตอนเย็น");
         }
 

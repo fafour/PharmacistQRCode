@@ -42,40 +42,51 @@ public class EditTime2Activity extends Activity  {
         TextView txt0 = (TextView) findViewById(R.id.txtData1);
         TextView txt1 = (TextView) findViewById(R.id.txtData2);
         String a []= txt.split(";");
-        txt0.setText("    ชื่อยา: " + a[0] + " ช่วงเวลา : " + a[1]);
-        txt1.setText("    รับประทาน : " + a[2] + "  จำนวน : " + a[3]);
+
 
         atTime1 = (TextView) findViewById(R.id.atTime1);
         atTime2 = (TextView) findViewById(R.id.atTime2);
 
-        if (a[1].equals("เช้า-เที่ยง")){
+        if (a[1].equals("Morning Lunch  ")){
             atTime1.setText("ตอนเช้า");
             atTime2.setText("ตอนเที่ยง");
+            txt0.setText("    ชื่อยา: " + a[0] + " ช่วงเวลา :เช้า เที่ยง");
+            txt1.setText("    รับประทาน : " + a[2] + "  จำนวน : " + a[3]);
         }
-        else if (a[1].equals("เช้า-เย็น")){
+        else if (a[1].equals("Morning  Dinner ")){
             atTime1.setText("ตอนเช้า");
             atTime2.setText("ตอนเย็น");
+            txt0.setText("    ชื่อยา: " + a[0] + " ช่วงเวลา :เช้า เย็น");
+            txt1.setText("    รับประทาน : " + a[2] + "  จำนวน : " + a[3]);
         }
-        else if (a[1].equals("เช้า-ก่อนนอน")){
+        else if (a[1].equals("Morning   Bed")){
             atTime1.setText("ตอนเช้า");
             atTime2.setText("ก่อนนอน");
+            txt0.setText("    ชื่อยา: " + a[0] + " ช่วงเวลา :เช้า ก่อนนอน");
+            txt1.setText("    รับประทาน : " + a[2] + "  จำนวน : " + a[3]);
         }
-        else if (a[1].equals("เที่ยง-เย็น")){
+        else if (a[1].equals(" Lunch Dinner " )){
             atTime1.setText("ตอนเที่ยง");
             atTime2.setText("ตอนเย็น");
+            txt0.setText("    ชื่อยา: " + a[0] + " ช่วงเวลา :เที่ยง เย็น");
+            txt1.setText("    รับประทาน : " + a[2] + "  จำนวน : " + a[3]);
         }
-        else if (a[1].equals("เที่ยง-ก่อนนอน")){
+        else if (a[1].equals(" Lunch  Bed")){
             atTime1.setText("ตอนเที่ยง");
             atTime2.setText("ก่อนนอน");
-        }else if (a[1].equals("เย็น-ก่อนนอน")){
+            txt0.setText("    ชื่อยา: " + a[0] + " ช่วงเวลา :เที่ยง ก่อนนอน");
+            txt1.setText("    รับประทาน : " + a[2] + "  จำนวน : " + a[3]);
+        }else if (a[1].equals("  Dinner Bed")){
             atTime1.setText("ตอนเย็น");
             atTime2.setText("ก่อนนอน");
+            txt0.setText("    ชื่อยา: " + a[0] + " ช่วงเวลา :เย็น ก่อนนอน");
+            txt1.setText("    รับประทาน : " + a[2] + "  จำนวน : " + a[3]);
         }
 
         timeEditQRcode1 = (TextView) findViewById(R.id.timeEditQRcode1);
         timeEditQRcode2 = (TextView) findViewById(R.id.timeEditQRcode2);
 
-        if (a[1].equals("เช้า-เที่ยง")){
+        if (a[1].equals("Morning Lunch  ")){
             if (SettingSystemActivity.TIME_1 == null ){
                 timeEditQRcode1.setText("08.30");
                 pHour1 = 8;
@@ -98,7 +109,7 @@ public class EditTime2Activity extends Activity  {
 
             }
         }
-        else if ( a[1].equals("เช้า-เย็น")){
+        else if ( a[1].equals("Morning  Dinner ")){
             if (SettingSystemActivity.TIME_1 == null ){
                 timeEditQRcode1.setText("08.30");
                 pHour1 = 8;
@@ -122,7 +133,7 @@ public class EditTime2Activity extends Activity  {
             }
 
         }
-        else if (a[1].equals("เช้า-ก่อนนอน")){
+        else if (a[1].equals("Morning   Bed")){
             if (SettingSystemActivity.TIME_1 == null ){
                 timeEditQRcode1.setText("08.30");
                 pHour1 = 8;
@@ -144,7 +155,7 @@ public class EditTime2Activity extends Activity  {
                 pMinute2 = SettingSystemActivity.TIME_42;
             }
         }
-        else if (a[1].equals("เที่ยง-เย็น")){
+        else if (a[1].equals(" Lunch Dinner " )){
             if (SettingSystemActivity.TIME_2 == null ){
                 timeEditQRcode1.setText("13.30");
                 pHour1 = 13;
@@ -168,7 +179,7 @@ public class EditTime2Activity extends Activity  {
 
             }
         }
-        else if (a[1].equals("เที่ยง-ก่อนนอน")){
+        else if (a[1].equals(" Lunch Bed" )){
             if (SettingSystemActivity.TIME_2 == null ){
                 timeEditQRcode1.setText("13.30");
                 pHour1 = 13;
@@ -191,7 +202,7 @@ public class EditTime2Activity extends Activity  {
                 pMinute2 = SettingSystemActivity.TIME_42;
             }
         }
-        else if (a[1].equals("เย็น-ก่อนนอน")){
+        else if (a[1].equals("  Dinner Bed")){
             if (SettingSystemActivity.TIME_3 == null ){
                 timeEditQRcode1.setText("18.30");
                 pHour1 = 18;

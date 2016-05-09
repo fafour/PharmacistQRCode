@@ -48,18 +48,22 @@ public class EditTime4Activity extends Activity {
         TextView txt0 = (TextView) findViewById(R.id.txtData1);
         TextView txt1 = (TextView) findViewById(R.id.txtData2);
         String a []= txt.split(";");
-        txt0.setText("    ชื่อยา: " + a[0] + " เวลา : " + a[1]);
-        txt1.setText("    รับประทาน : " + a[2] + "  จำนวน : " + a[3]);
 
         atTime1 = (TextView) findViewById(R.id.atTime1);
         atTime2 = (TextView) findViewById(R.id.atTime2);
         atTime3 = (TextView) findViewById(R.id.atTime3);
         atTime4 = (TextView) findViewById(R.id.atTime4);
 
-        atTime1.setText("ตอนเช้า");
-        atTime1.setText("ตอนเที่ยง");
-        atTime1.setText("ตอนเย็น");
-        atTime1.setText("ก่อนนอน");
+
+        if (a[1].equals("Morning Lunch Dinner Bed") ){
+            txt0.setText("  ชื่อยา: " + a[0]+" เวลา :เช้า เที่ยง เย็น ก่อนนอน");
+            txt1.setText("  รับประทาน : "+ a[2]+"  จำนวน : "+ a[3]);
+            atTime1.setText("ตอนเช้า");
+            atTime2.setText("ตอนเที่ยง");
+            atTime3.setText("ตอนเย็น");
+            atTime4.setText("ก่อนนอน");
+        }
+
 
         timeEditQRcode1 = (TextView) findViewById(R.id.timeEditQRcode1);
         timeEditQRcode2 = (TextView) findViewById(R.id.timeEditQRcode2);
@@ -96,11 +100,11 @@ public class EditTime4Activity extends Activity {
             pMinute3 = SettingSystemActivity.TIME_32;
         }
         if (SettingSystemActivity.TIME_4 == null ){
-            timeEditQRcode3.setText("22.30");
+            timeEditQRcode4.setText("22.30");
             pHour4 =22;
             pMinute4 =30;
         }else {
-            timeEditQRcode3.setText(SettingSystemActivity.TIME_4);
+            timeEditQRcode4.setText(SettingSystemActivity.TIME_4);
             pHour4 = SettingSystemActivity.TIME_41;
             pMinute4 = SettingSystemActivity.TIME_42;
         }

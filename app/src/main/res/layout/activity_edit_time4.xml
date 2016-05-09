@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:textColor="@android:color/black"
-            android:text=" " />
+            android:text="   " />
 
         <TextView
             android:layout_width="wrap_content"
@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:textColor="@android:color/black"
-            android:text=" "/>
+            android:text="  "/>
 
         <Button
             android:onClick="time1"
@@ -231,7 +231,7 @@
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:textColor="@android:color/black"
-            android:text=" "/>
+            android:text="    "/>
 
         <Button
             android:onClick="time3"
@@ -295,7 +295,7 @@
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:textColor="@android:color/black"
-            android:text=" "/>
+            android:text="   "/>
 
         <Button
             android:onClick="time4"

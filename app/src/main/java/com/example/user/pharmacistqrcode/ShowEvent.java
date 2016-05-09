@@ -17,7 +17,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 public class ShowEvent extends Activity implements OnClickListener {
 
@@ -29,7 +31,7 @@ public class ShowEvent extends Activity implements OnClickListener {
     MediaPlayer mediaPlayer;
     Vibrator v;
 
-    String sings = "เสียง1";
+    String sings = "สั่น";
 
     Button btnStop;
     @Override
@@ -46,11 +48,13 @@ public class ShowEvent extends Activity implements OnClickListener {
 
         setContentView(R.layout.sec);
         TextView as = (TextView) findViewById(R.id.as);
-        Date date = new Date();
-        as.setText(date.toString());
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+        String currentDate = df.format(c.getTime());
+        as.setText(currentDate);
 
         if (SettingSystemActivity.SING == null ){
-            sings = "เสียง1";
+            sings = "สั่น";
         }else {
             sings = SettingSystemActivity.SING;
         }
@@ -68,6 +72,30 @@ public class ShowEvent extends Activity implements OnClickListener {
         }
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         v.cancel();
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeZone(TimeZone.getTimeZone("GMT+7"));
+        cal.setTimeInMillis(System.currentTimeMillis());
+        cal.set(Calendar.SECOND, 00);
+        cal.set(Calendar.MILLISECOND, 00);
+
+        if(MainActivity.calTimes.size() != 0){
+            MainActivity.calTimes.remove(cal);
+        }
+        if(MainActivity.calTimes1.size() != 0){
+            MainActivity.calTimes1.remove(cal);
+        }
+        if(MainActivity.calTimes2.size() != 0){
+            MainActivity.calTimes2.remove(cal);
+        }
+        if(MainActivity.calTimes3.size() != 0){
+            MainActivity.calTimes3.remove(cal);
+        }
+        if(MainActivity.calTimes4.size() != 0){
+            MainActivity.calTimes4.remove(cal);
+        }
+
+
+
     }
 
     @Override
