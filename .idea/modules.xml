@@ -4,8 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PharmacistQRCode.iml" filepath="$PROJECT_DIR$/PharmacistQRCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libraries/libraries.iml" filepath="$PROJECT_DIR$/libraries/libraries.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libraries/mylib/mylib.iml" filepath="$PROJECT_DIR$/libraries/mylib/mylib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/src/libraries/libraries.iml" filepath="$PROJECT_DIR$/app/src/libraries/libraries.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/src/libraries/mylib/mylib.iml" filepath="$PROJECT_DIR$/app/src/libraries/mylib/mylib.iml" />
     </modules>
   </component>
 </project>

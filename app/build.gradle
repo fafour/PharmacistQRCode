@@ -3,7 +3,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion '23.0.2'
-
     defaultConfig {
         applicationId "com.example.user.pharmacistqrcode"
         minSdkVersion 21
@@ -17,17 +16,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile files('C:/Users/User/AndroidStudioProjects/PharmacistQRCode/libraries/ZXing-BarcodeScanner-Source/core-2.2.jar')
-    compile files('C:/Users/User/AndroidStudioProjects/PharmacistQRCode/libraries/core-2.2.jar')
-    compile files('libs/core.jar')
-    compile files('C:/Users/User/AndroidStudioProjects/PharmacistQRCode/libraries/core.jar')
-    compile files('libs/core-3.0.0.jar')
-    compile files('libs/android-support-v4.jar')
-    compile files('libs/gradle-wrapper.jar')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile files('src/main/java/com/QRCodeReaderView-lib/qrcodereaderview/libs/core.jar')
-    compile files('src/main/java/com/QRCodeReaderView-lib/gradle/wrapper/gradle-wrapper.jar')
 }
